@@ -11,25 +11,25 @@ var world = planck.World(gravity);
 
 
 // Define the dynamic body. We set its position and call the body factory.
-var dogBody = world.createBody({
-    type: 'dynamic',
-    position: Vec2(100.0, 100.0),
-});
+// var dogBody = world.createBody({
+//     type: 'dynamic',
+//     position: Vec2(100.0, 100.0),
+// });
 
 // Define another box shape for our dynamic body.
-var dogBox = planck.Box(8.0, 8.0);
+// var dogBox = planck.Box(8.0, 8.0);
 
 // Define the dynamic body fixture.
-var dogFixtureDef = {
-    shape: dogBox,
-    // Set the box density to be non-zero, so it will be dynamic.
-    density: 1.0,
-    // Override the default friction.
-    friction: 0.3,
-};
+// var dogFixtureDef = {
+//     shape: dogBox,
+//     // Set the box density to be non-zero, so it will be dynamic.
+//     density: 1.0,
+//     // Override the default friction.
+//     friction: 0.3,
+// };
 
 // Add the shape to the body.
-dogBody.createFixture(dogFixtureDef);
+// dogBody.createFixture(dogFixtureDef);
 
 // Prepare for simulation. Typically we use a time step of 1/60 of a
 // second (60Hz) and 10 iterations. This provides a high quality simulation

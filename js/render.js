@@ -3,7 +3,7 @@ function render() {
     world.step(1/60,1,1);
         
     this.world.clearForces();
-    dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
+    Dog.setLinearVelocity(Vec2(x_axis, y_axis));
     // iterate over bodies and fixtures
     ctx.clearRect(0, 0, WIDTH, HEIGHT);
 
