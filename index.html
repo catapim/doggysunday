@@ -7,6 +7,9 @@
     </canvas>
 </body>
 <script src="./js/world.js"></script>
+<script src="./js/fence.js"></script>
+<script src="./js/sheep.js"></script>
+
 <script src="./js/controls.js"></script>
 
 <script>
@@ -48,13 +51,21 @@
                 ctx.stroke();
 
             } else {
-                ctx.fillStyle = "#FF0000";
+                if (body.getUserData() == "sheep") {
+
+                    ctx.fillStyle = "#00FF00";
+                } else {
+                    ctx.fillStyle = "#FF0000";
+
+                }
                 ctx.fillRect(p.x, p.y, 10, 10);
 
             }
             
 
         }
+        // move dog
+        dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
         // request a new frame
         window.requestAnimationFrame(loop);
 
