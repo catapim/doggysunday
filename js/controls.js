@@ -1,5 +1,5 @@
 var isKeyPressed = false
-var force=500;
+var force=8;
 var x_axis=0.0;
 var y_axis=0.0;
 function keyPressed(key) {

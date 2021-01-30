@@ -25,7 +25,7 @@ class Sheep {
 var sheepNum = 5
 var i;
 for (i =0; i < sheepNum; i++) {
-    var xRandom = Math.floor(Math.random()*sheepNum*1);
-    var yRandom = Math.floor(Math.random()*sheepNum*3);
+    var xRandom = 2+Math.floor(Math.random()*sheepNum*1);
+    var yRandom = 2+Math.floor(Math.random()*sheepNum*3);
     new Sheep(xRandom, yRandom)
 }
