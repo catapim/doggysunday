@@ -15,7 +15,7 @@ class Dog {
 
         // Define the ground box shape.
         // The extents are the half-widths of the box.
-        var dogBox = planck.Box(8.0, 8.0);
+        var dogBox = planck.Box(0.1, 0.1);
         // let box = planck.Circle(Vec2(0.0,0.0), 8.0);
 
         // Define the dynamic body fixture.
@@ -41,5 +41,5 @@ class Dog {
 // for (i =0; i < sheepNum; i++) {
 //     var xRandom = 20+Math.floor(Math.random()*sheepNum*10);
 //     var yRandom = 20+Math.floor(Math.random()*sheepNum*30);
-var dog=new Dog(100.0, 100.0)
+var dog=new Dog(10.0, 10.0)
 // }

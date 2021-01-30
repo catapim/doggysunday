@@ -50,23 +50,28 @@ function render() {
 
             ctx.moveTo(p.x, p.y);
             let v=[shape.getVertex(0),shape.getVertex(1),shape.getVertex(2),shape.getVertex(3)]
-            ctx.lineTo(p.x+v[0].x, p.y+v[0].y);
-            ctx.lineTo(p.x+v[1].x, p.y+v[1].y);
-            ctx.lineTo(p.x+v[2].x, p.y+v[2].y);
-            ctx.lineTo(p.x+v[3].x, p.y+v[3].y);
+            ctx.lineTo(p.x+v[0].x*SCALE, p.y+v[0].y*SCALE);
+            ctx.lineTo(p.x+v[1].x*SCALE, p.y+v[1].y*SCALE);
+            ctx.lineTo(p.x+v[2].x*SCALE, p.y+v[2].y*SCALE);
+            ctx.lineTo(p.x+v[3].x*SCALE, p.y+v[3].y*SCALE);
 
             ctx.stroke();
         } else if (userData == "sheep") {
             ctx.fillStyle = "#00FF00";
-            ctx.fillRect(p.x-8, p.y-8, 16, 16);
+            let x=p.x*SCALE
+            let y=p.y*SCALE
+            ctx.fillRect(x, y, 16, SCALE);
 
 
         } else {
            
             ctx.fillStyle = "#FF0000";       
             // ctx.fillRect(p.x-8, p.y-8, 16, 16);
-            ctx.drawImage(sprite,p.x-8, p.y-8, 16, 16)
+            // convert world position to screen positions
+            let x=p.x*SCALE
+            let y=p.y*SCALE
 
+            ctx.drawImage(dog_sprite,x, y, 16, 16)
         }
         
 

@@ -1,6 +1,6 @@
 const WIDTH=640;
 const HEIGHT=480;
-const SCALE=16.0;
+const SCALE=16;
 var Vec2 = planck.Vec2;
 
 // Define the gravity vector.

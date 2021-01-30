@@ -14,7 +14,7 @@ class Sheep {
 
         // Define the ground box shape.
         // The extents are the half-widths of the box.
-        let box = planck.Circle(Vec2(0.0,0.0), 8.0);
+        let box = planck.Circle(Vec2(0.0,0.0), 0.1);
 
 
         // Add the ground fixture to the ground body.
@@ -25,7 +25,7 @@ class Sheep {
 var sheepNum = 5
 var i;
 for (i =0; i < sheepNum; i++) {
-    var xRandom = 20+Math.floor(Math.random()*sheepNum*10);
-    var yRandom = 20+Math.floor(Math.random()*sheepNum*30);
+    var xRandom = 2+Math.floor(Math.random()*sheepNum*1);
+    var yRandom = 2+Math.floor(Math.random()*sheepNum*3);
     new Sheep(xRandom, yRandom)
 }
