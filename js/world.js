@@ -17,7 +17,7 @@ var dogBody = world.createBody({
 });
 
 // Define another box shape for our dynamic body.
-var dogBox = planck.Box(10.0, 10.0);
+var dogBox = planck.Box(8.0, 8.0);
 
 // Define the dynamic body fixture.
 var dogFixtureDef = {
