@@ -22,9 +22,10 @@ class Sheep {
     }
 }
 
-// addFence(position_x:float,position_y:float,vertices:array)
-new Sheep(20.0,20.0);
-new Sheep(30.0,40.0);
-new Sheep(50.0,60.0);
-new Sheep(60.0,70.0);
-new Sheep(90.0,25.0);
+var sheepNum = 20
+var i;
+for (i =0; i < sheepNum; i++) {
+    var xRandom = Math.floor(Math.random()*sheepNum*1);
+    var yRandom = Math.floor(Math.random()*sheepNum*3);
+    new Sheep(xRandom, yRandom)
+}
