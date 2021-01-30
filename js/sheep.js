@@ -14,7 +14,7 @@ class Sheep {
 
         // Define the ground box shape.
         // The extents are the half-widths of the box.
-        let box = planck.Circle(Vec2(0.0,0.0), 8.0);
+        let box = planck.Circle(Vec2(0.0,0.0), 0.1);
 
 
         // Add the ground fixture to the ground body.
