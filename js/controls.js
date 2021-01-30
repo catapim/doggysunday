@@ -27,7 +27,7 @@ function keyPressed(key) {
       x_axis=500.0;
       break;
     default:
-      console.log(key);
+      // console.log(key);
   }
 }
 document.addEventListener("keypress", function (event) {

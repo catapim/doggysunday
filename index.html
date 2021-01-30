@@ -24,14 +24,15 @@
 
     function loop() {
         let current = Date.now(), elapsed = current - start;
+        world.step(1/60,elapsed/1000);
+
+        // in each frame call world.step(timeStep) with fixed timeStep
         start = current;
         
-        // in each frame call world.step(timeStep) with fixed timeStep
-        world.step(elapsed / 60);
         // iterate over bodies and fixtures
         ctx.clearRect(0, 0, WIDTH, HEIGHT);
 
-        for (var body = world.getBodyList(); body; body = body.getNext()) {
+        for (let body = world.getBodyList(); body; body = body.getNext()) {
             // for (var fixture = body.getFixtureList(); fixture; fixture = fixture.getNext()) {
             //     // draw or update fixture
             // }
@@ -51,7 +52,7 @@
                 ctx.stroke();
             } else if (body.getUserData() == "sheep") {
                 ctx.fillStyle = "#00FF00";
-                ctx.fillRect(p.x, p.y, 10, 10);
+                ctx.fillRect(p.x-8, p.y-8, 16, 16);
 
 
             } else {
