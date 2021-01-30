@@ -4,7 +4,10 @@ class Sheep {
         let bodyDef = {
             position: Vec2(x, y),
             userData: "sheep",
-            type: 'dynamic'
+            type: 'dynamic',
+            linearDamping: 1.0,
+            angularDamping: 0.01,
+            allowSleep:true
         };
 
         // Call the body factory which allocates memory for the ground body
@@ -25,7 +28,7 @@ class Sheep {
 var sheepNum = 5
 var i;
 for (i =0; i < sheepNum; i++) {
-    var xRandom = 2+Math.floor(Math.random()*sheepNum*1);
-    var yRandom = 2+Math.floor(Math.random()*sheepNum*3);
+    var xRandom = 1+Math.ceil(Math.random()*sheepNum*1)/10;
+    var yRandom = 1+Math.ceil(Math.random()*sheepNum*3)/10;
     new Sheep(xRandom, yRandom)
 }

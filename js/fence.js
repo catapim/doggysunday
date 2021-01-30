@@ -3,7 +3,8 @@ class Fence {
         // Define the ground body.
         var groundBodyDef = {
             position: Vec2(x, y),
-            userData: "fence"
+            userData: "fence",
+            type: 'static'
         };
 
         // Call the body factory which allocates memory for the ground body
@@ -28,15 +29,15 @@ class Fence {
 // addFence(position_x:float,position_y:float,vertices:array)
 new Fence(0.0,0.0,[
     [0.0,0.0],
-    [1.0,0.0],
-    [1.0,HEIGHT],
-    [0.0,HEIGHT]
+    [0.1,0.0],
+    [0.1,10],
+    [0.0,10]
 ]);
 new Fence(0.0,0.0,[
     [0.0,0.0],
-    [WIDTH,0.0],
-    [WIDTH,1.0],
-    [0.0,1.0]
+    [10,0.0],
+    [10,0.1],
+    [0.0,0.1]
 ]);
 
 

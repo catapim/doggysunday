@@ -41,5 +41,5 @@ class Dog {
 // for (i =0; i < sheepNum; i++) {
 //     var xRandom = 20+Math.floor(Math.random()*sheepNum*10);
 //     var yRandom = 20+Math.floor(Math.random()*sheepNum*30);
-var dog=new Dog(10.0, 10.0)
+var dog=new Dog(1.0, 1.0)
 // }
