@@ -17,10 +17,11 @@ function render() {
 
 
             ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p.x+shape.getVertex(0).x, p.y+shape.getVertex(0).y);
-            ctx.lineTo(p.x+shape.getVertex(1).x, p.y+shape.getVertex(1).y);
-            ctx.lineTo(p.x+shape.getVertex(2).x, p.y+shape.getVertex(2).y);
-            ctx.lineTo(p.x+shape.getVertex(3).x, p.y+shape.getVertex(3).y);
+            let v=[shape.getVertex(0),shape.getVertex(1),shape.getVertex(2),shape.getVertex(3)]
+            ctx.lineTo(p.x+v[0].x, p.y+v[0].y);
+            ctx.lineTo(p.x+v[1].x, p.y+v[1].y);
+            ctx.lineTo(p.x+v[2].x, p.y+v[2].y);
+            ctx.lineTo(p.x+v[3].x, p.y+v[3].y);
 
             ctx.stroke();
         } else if (userData == "sheep") {
