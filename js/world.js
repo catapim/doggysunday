@@ -13,7 +13,7 @@ function addFence(x,y,vertices) {
     // Define the ground body.
     var groundBodyDef = {
         position: Vec2(x, y),
-        userData: {name:"fence"}
+        userData: "fence"
     };
 
     // Call the body factory which allocates memory for the ground body

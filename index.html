@@ -29,12 +29,12 @@
         ctx.clearRect(0, 0, WIDTH, HEIGHT);
 
         for (var body = world.getBodyList(); body; body = body.getNext()) {
-            for (var fixture = body.getFixtureList(); fixture; fixture = fixture.getNext()) {
-                // draw or update fixture
-            }
+            // for (var fixture = body.getFixtureList(); fixture; fixture = fixture.getNext()) {
+            //     // draw or update fixture
+            // }
          
             let p = body.getPosition();
-            if (body.getUserData() && body.getUserData().name == "fence") {
+            if (body.getUserData() == "fence") {
                 ctx.fillStyle = "#000000";
                 let shape=body.getFixtureList().getShape();
 
