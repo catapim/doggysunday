@@ -45,7 +45,6 @@
 
             actualTicks = 0
         }
-        setTimeout(gameLoop)
     }
 
 
@@ -55,15 +54,16 @@
     had a very busy time.
     */
     var update = function(delta) {
-        dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
         world.step(1/60,delta);
+        this.world.clearForces();
+        dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
 
     }
 
    
 
     // begin the loop !
-    gameLoop()
+    setInterval(gameLoop,1000/60);
 
 </script>
 <script src="./js/render.js"></script>
