@@ -8,30 +8,34 @@ var gravity = Vec2(0.0, 10.0);
 // Construct a world object, which will hold and simulate the rigid bodies.
 var world = planck.World(gravity);
 
-// Define the ground body.
-var groundBodyDef = {
-    position: Vec2(0.0, 300.0),
-    userData: "ground"
-};
 
-// Call the body factory which allocates memory for the ground body
-// from a pool and creates the ground box shape (also from a pool).
-// The body is also added to the world.
-var groundBody = world.createBody(groundBodyDef);
+function addFence() {
 
-// Define the ground box shape.
-// The extents are the half-widths of the box.
-var groundBox = planck.Box(50.0, 10.0);
+    // Define the ground body.
+    var groundBodyDef = {
+        position: Vec2(0.0, 300.0),
+        userData: "ground"
+    };
 
-// Add the ground fixture to the ground body.
-groundBody.createFixture(groundBox, 0.0);
+    // Call the body factory which allocates memory for the ground body
+    // from a pool and creates the ground box shape (also from a pool).
+    // The body is also added to the world.
+    var groundBody = world.createBody(groundBodyDef);
+
+    // Define the ground box shape.
+    // The extents are the half-widths of the box.
+    var groundBox = planck.Box(50.0, 10.0);
+
+    // Add the ground fixture to the ground body.
+    groundBody.createFixture(groundBox, 0.0);
+}
+addFence();
 
 // Define the dynamic body. We set its position and call the body factory.
-var bodyDef = {
+var dogBody = world.createBody({
     type: 'dynamic',
     position: Vec2(0.0, 4.0),
-}
-var dogBody = world.createBody(bodyDef);
+});
 
 // Define another box shape for our dynamic body.
 var dogBox = planck.Box(1.0, 1.0);

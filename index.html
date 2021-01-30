@@ -23,10 +23,14 @@
         world.step(1 / 60);
         // iterate over bodies and fixtures
         ctx.clearRect(0, 0, WIDTH, HEIGHT);
+
         for (var body = world.getBodyList(); body; body = body.getNext()) {
             for (var fixture = body.getFixtureList(); fixture; fixture = fixture.getNext()) {
                 // draw or update fixture
             }
+            let shape=body.getFixtureList().getShape();
+            console.log(shape.getVertex(0).x,shape.getVertex(0).y);
+
             let p = body.getPosition();
             if (body.getUserData() == "ground") {
                 ctx.fillStyle = "#000000";
@@ -35,6 +39,7 @@
                 ctx.fillStyle = "#FF0000";
 
             }
+            
             ctx.fillRect(p.x, p.y, 10, 10);
 
         }
