@@ -54,7 +54,7 @@
     had a very busy time.
     */
     var update = function(delta) {
-        world.step(1/60,delta);
+        world.step(delta);
         this.world.clearForces();
         dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
 
