@@ -20,51 +20,6 @@
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
 
-
-    /**
-    Length of a tick in milliseconds. The denominator is your desired framerate.
-    e.g. 1000 / 20 = 20 fps,  1000 / 60 = 60 fps
-    */
-    var tickLengthMs = 1000 / 60
-
-    /* gameLoop related variables */
-    // timestamp of each loop
-    var previousTick = Date.now()
-    // number of times gameLoop gets called
-    var actualTicks = 0
-
-    var gameLoop = function () {
-        var now = Date.now()
-
-        actualTicks++
-        if (previousTick + tickLengthMs <= now) {
-            var delta = (now - previousTick) / 1000
-            previousTick = now
-
-            update(delta)
-
-            actualTicks = 0
-        }
-    }
-
-
-    /**
-    Update is normally where all of the logic would go. In this case we simply call
-    a function that takes 10 milliseconds to complete thus simulating that our game
-    had a very busy time.
-    */
-    var update = function(delta) {
-        world.step(delta);
-        this.world.clearForces();
-        dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
-
-    }
-
-   
-
-    // begin the loop !
-    setInterval(gameLoop,1000/60);
-
 </script>
 <script src="./js/render.js"></script>
 
