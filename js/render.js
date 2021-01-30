@@ -1,7 +1,6 @@
 function render() {
    
 
-    dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
     // iterate over bodies and fixtures
     ctx.clearRect(0, 0, WIDTH, HEIGHT);
 
@@ -48,6 +47,7 @@ function render() {
 window.requestAnimationFrame(render);
 setInterval(function(){
     world.step(1/60,3,8);
-        
+    dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
+
     this.world.clearForces();
 },30)
