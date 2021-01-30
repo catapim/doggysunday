@@ -3,6 +3,10 @@ function render() {
     // iterate over bodies and fixtures
     ctx.clearRect(0, 0, WIDTH, HEIGHT);
 
+    var dog_sprite = new Image();
+    dog_sprite.src="./src/img/dog.gif"
+    console.log(dog_sprite.src)
+
     for (let body = world.getBodyList(); body; body = body.getNext()) {
         // for (var fixture = body.getFixtureList(); fixture; fixture = fixture.getNext()) {
         //     // draw or update fixture
@@ -33,8 +37,8 @@ function render() {
             ctx.fillStyle = "#FF0000";
 
        
-            ctx.fillRect(p.x-8, p.y-8, 16, 16);
-
+            // ctx.fillRect(p.x-8, p.y-8, 16, 16);
+            ctx.drawImage(dog_sprite,p.x-8, p.y-8, 16, 16)
         }
         
 
