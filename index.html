@@ -49,15 +49,16 @@
                 ctx.lineTo(p.x+shape.getVertex(3).x, p.y+shape.getVertex(3).y);
 
                 ctx.stroke();
+            } else if (body.getUserData() == "sheep") {
+                ctx.fillStyle = "#00FF00";
+                ctx.fillRect(p.x, p.y, 10, 10);
+
 
             } else {
-                if (body.getUserData() == "sheep") {
+               
+                ctx.fillStyle = "#FF0000";
 
-                    ctx.fillStyle = "#00FF00";
-                } else {
-                    ctx.fillStyle = "#FF0000";
-
-                }
+           
                 ctx.fillRect(p.x, p.y, 10, 10);
 
             }
