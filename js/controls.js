@@ -1,17 +1,10 @@
 function getKey() {
-  document.addEventListener("keypress", function (event) {
-    var eventKey = event.key;
-    console.log(eventKey);
-    keyPressed(eventKey)
-    // if (eventKey === "d") {
-    //   console.log("event is d");
-    //   dogBody.applyForce(Vec2(1.0, 1.0), Vec2(2.0, 2.0), true);
-    // }
-  });
+ 
 }
 
 function keyPressed(key) {
     //applyForce(force: Vec2, point: Vec2, wake?: boolean): void
+    console.log(key)
   switch (key) {
     case "w":
         dogBody.applyForce(Vec2(1.0, -20.0), Vec2(-300.0, -200.0), true);
@@ -29,3 +22,12 @@ function keyPressed(key) {
       console.log(key);
   }
 }
+document.addEventListener("keypress", function (event) {
+  var eventKey = event.key;
+  console.log(eventKey);
+  keyPressed(eventKey)
+  // if (eventKey === "d") {
+  //   console.log("event is d");
+  //   dogBody.applyForce(Vec2(1.0, 1.0), Vec2(2.0, 2.0), true);
+  // }
+});
