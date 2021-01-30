@@ -83,8 +83,9 @@ function render() {
 }
 window.requestAnimationFrame(render);
 setInterval(function(){
-    world.step(1/60,3,8);
-    dog.dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
-
+    world.step(1/60,1,1);
+    // dog.dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
     this.world.clearForces();
+        dog.dogBody.applyForce(Vec2(x_axis,y_axis),dog.dogBody.getPosition())
+
 },30)

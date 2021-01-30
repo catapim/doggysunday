@@ -5,7 +5,9 @@ class Dog {
         let dogBodyDef = {
             position: Vec2(x, y),
             userData: "dog",
-            type: 'dynamic'
+            type: 'dynamic',
+            linearDamping: 10.0,
+            angularDamping: 0.01
         };
 
         // Call the body factory which allocates memory for the ground body
