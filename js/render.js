@@ -1,6 +1,5 @@
 function render() {
    
-
     // iterate over bodies and fixtures
     ctx.clearRect(0, 0, WIDTH, HEIGHT);
 
