@@ -10,7 +10,8 @@ function render() {
         // }
      
         let p = body.getPosition();
-        if (body.getUserData() == "fence") {
+        let userData=body.getUserData();
+        if (userData == "fence") {
             ctx.fillStyle = "#000000";
             let shape=body.getFixtureList().getShape();
 
@@ -22,7 +23,7 @@ function render() {
             ctx.lineTo(p.x+shape.getVertex(3).x, p.y+shape.getVertex(3).y);
 
             ctx.stroke();
-        } else if (body.getUserData() == "sheep") {
+        } else if (userData == "sheep") {
             ctx.fillStyle = "#00FF00";
             ctx.fillRect(p.x-8, p.y-8, 16, 16);
 
