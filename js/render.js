@@ -31,7 +31,7 @@ function render() {
             ctx.fillStyle = "#00FF00";
             let x=p.x*SCALE
             let y=p.y*SCALE
-            ctx.fillRect(x, y, 16, 16);
+            ctx.fillRect(x, y, 16, SCALE);
 
 
         } else {
