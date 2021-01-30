@@ -31,7 +31,7 @@ function render() {
             ctx.fillStyle = "#00FF00";
             let x=p.x*SCALE
             let y=p.y*SCALE
-            ctx.fillRect(x, y, 16, SCALE);
+            ctx.fillRect(x, y, SCALE*0.1, SCALE*0.1);
 
 
         } else {
@@ -44,7 +44,7 @@ function render() {
             let x=p.x*SCALE
             let y=p.y*SCALE
 
-            ctx.drawImage(dog_sprite,x, y, 16, 16)
+            ctx.drawImage(dog_sprite,x, y, SCALE*0.1, SCALE*0.1)
         }
         
 
