@@ -6,7 +6,7 @@ var Vec2 = planck.Vec2;
 var gravity = Vec2(0.0, 0.0);
 
 // Construct a world object, which will hold and simulate the rigid bodies.
-var world = planck.World(gravity);
+var world = planck.World({allowSleep:true,gravity:gravity,positionIterations:1});
 
 
 
