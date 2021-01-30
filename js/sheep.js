@@ -4,7 +4,10 @@ class Sheep {
         let bodyDef = {
             position: Vec2(x, y),
             userData: "sheep",
-            type: 'dynamic'
+            type: 'dynamic',
+            linearDamping: 1.0,
+            angularDamping: 0.01,
+            allowSleep:true
         };
 
         // Call the body factory which allocates memory for the ground body
