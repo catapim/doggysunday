@@ -9,12 +9,12 @@ var gravity = Vec2(0.0, 10.0);
 var world = planck.World(gravity);
 
 
-function addFence() {
+function addFence(width,height) {
 
     // Define the ground body.
     var groundBodyDef = {
         position: Vec2(0.0, 300.0),
-        userData: "ground"
+        userData: {name:"fence"}
     };
 
     // Call the body factory which allocates memory for the ground body
@@ -24,12 +24,12 @@ function addFence() {
 
     // Define the ground box shape.
     // The extents are the half-widths of the box.
-    var groundBox = planck.Box(50.0, 10.0);
+    var groundBox = planck.Polygon([Vec2(0.0,0.0),Vec2(width,0.0),Vec2(width,height),Vec2(0.0,height)]);
 
     // Add the ground fixture to the ground body.
     groundBody.createFixture(groundBox, 0.0);
 }
-addFence();
+addFence(50.0,10.0);
 
 // Define the dynamic body. We set its position and call the body factory.
 var dogBody = world.createBody({
