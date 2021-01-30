@@ -51,7 +51,7 @@ addFence(0.0,0.0,[
 // Define the dynamic body. We set its position and call the body factory.
 var dogBody = world.createBody({
     type: 'dynamic',
-    position: Vec2(10.0, 10.0),
+    position: Vec2(100.0, 100.0),
 });
 
 // Define another box shape for our dynamic body.
