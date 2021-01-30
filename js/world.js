@@ -3,7 +3,7 @@ const HEIGHT=480;
 var Vec2 = planck.Vec2;
 
 // Define the gravity vector.
-var gravity = Vec2(0.0, 10.0);
+var gravity = Vec2(0.0, 0.0);
 
 // Construct a world object, which will hold and simulate the rigid bodies.
 var world = planck.World(gravity);
