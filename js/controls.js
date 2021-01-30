@@ -11,18 +11,19 @@ function getKey() {
 }
 
 function keyPressed(key) {
+    //applyForce(force: Vec2, point: Vec2, wake?: boolean): void
   switch (key) {
     case "w":
-        dogBody.applyForce(Vec2(1.0, 1.0), Vec2(3.0, 3.0), true);
+        dogBody.applyForce(Vec2(1.0, -20.0), Vec2(-300.0, -200.0), true);
         break;
     case "a":
-        dogBody.applyForce(Vec2(1.0, 1.0), Vec2(8.0, 8.0), true);
+        dogBody.applyForce(Vec2(-10.0, -10.0), Vec2(400.0, 200.0), true);
         break;
     case "s":
-        dogBody.applyForce(Vec2(1.0, 1.0), Vec2(10.0, 10.0), true);
+        dogBody.applyForce(Vec2(3.0, 3.0), Vec2(-300.0, -200.0), true);
         break;
     case "d":
-        dogBody.applyForce(Vec2(1.0, 1.0), Vec2(20.0, 20.0), true);
+        dogBody.applyForce(Vec2(4.0, 4.0), Vec2(-300.0, -200.0), true);
         break;
     default:
       console.log(key);
