@@ -1,4 +1,5 @@
 class Dog {
+    dogBody=null;
     constructor(x,y) {
         // Define the ground body.
         let dogBodyDef = {
@@ -10,7 +11,7 @@ class Dog {
         // Call the body factory which allocates memory for the ground body
         // from a pool and creates the ground box shape (also from a pool).
         // The body is also added to the world.
-        let dogBody = world.createBody(dogBodyDef);
+        this.dogBody = world.createBody(dogBodyDef);
 
         // Define the ground box shape.
         // The extents are the half-widths of the box.
@@ -29,9 +30,10 @@ class Dog {
         
         // Add the ground fixture to the ground body.
         // body.createFixture(box, 0.0);
-        dogBody.createFixture(dogFixtureDef);
+        this.dogBody.createFixture(dogFixtureDef);
 
     }
+    
 }
 
 // var sheepNum = 5
@@ -39,5 +41,5 @@ class Dog {
 // for (i =0; i < sheepNum; i++) {
 //     var xRandom = 20+Math.floor(Math.random()*sheepNum*10);
 //     var yRandom = 20+Math.floor(Math.random()*sheepNum*30);
-new Dog(100.0, 100.0)
+var dog=new Dog(100.0, 100.0)
 // }

@@ -47,7 +47,7 @@ function render() {
 window.requestAnimationFrame(render);
 setInterval(function(){
     world.step(1/60,3,8);
-    dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
+    dog.dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
 
     this.world.clearForces();
 },30)
