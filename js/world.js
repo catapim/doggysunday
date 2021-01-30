@@ -34,9 +34,9 @@ dogBody.createFixture(dogFixtureDef);
 // Prepare for simulation. Typically we use a time step of 1/60 of a
 // second (60Hz) and 10 iterations. This provides a high quality simulation
 // in most game scenarios.
-var timeStep = 1.0 / 60.0;
-var velocityIterations = 6;
-var positionIterations = 2;
+var timeStep = 1.0 / 30.0;
+var velocityIterations = 1;
+var positionIterations = 1;
 
 
 // // This is our little game loop.
