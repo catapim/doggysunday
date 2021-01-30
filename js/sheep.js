@@ -22,10 +22,10 @@ class Sheep {
     }
 }
 
-var sheepNum = 20
+var sheepNum = 5
 var i;
 for (i =0; i < sheepNum; i++) {
-    var xRandom = 20+Math.floor(Math.random()*sheepNum*1);
-    var yRandom = 20+Math.floor(Math.random()*sheepNum*3);
+    var xRandom = 20+Math.floor(Math.random()*sheepNum*10);
+    var yRandom = 20+Math.floor(Math.random()*sheepNum*30);
     new Sheep(xRandom, yRandom)
 }
