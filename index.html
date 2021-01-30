@@ -34,11 +34,7 @@
                 ctx.fillStyle = "#000000";
                 let shape=body.getFixtureList().getShape();
 
-                // console.log(shape.getVertex(0).x,shape.getVertex(0).y);
-                // console.log(shape.getVertex(1).x,shape.getVertex(1).y);
-                // console.log(shape.getVertex(2).x,shape.getVertex(2).y);
-                // console.log(shape.getVertex(3).x,shape.getVertex(3).y);
-                // console.log("a");
+
                 ctx.moveTo(p.x, p.y);
                 ctx.lineTo(p.x+shape.getVertex(0).x, p.y+shape.getVertex(0).y);
                 ctx.lineTo(p.x+shape.getVertex(1).x, p.y+shape.getVertex(1).y);

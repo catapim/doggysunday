@@ -24,16 +24,29 @@ function addFence(x,y,vertices) {
 
     // Define the ground box shape.
     // The extents are the half-widths of the box.
-    var groundBox = planck.Polygon(vertices);
+    var groundBox = planck.Polygon([
+        Vec2(vertices[0][0],vertices[0][1]),
+        Vec2(vertices[1][0],vertices[1][1]),
+        Vec2(vertices[2][0],vertices[2][1]),
+        Vec2(vertices[3][0],vertices[3][1])
+    ]);
 
     // Add the ground fixture to the ground body.
     groundBody.createFixture(groundBox, 0.0);
 }
-addFence(
-    0.0,
-    80.0,
-    [Vec2(0.0,0.0),Vec2(50.0,-10.0),Vec2(50.0,10),Vec2(0.0,10)]
-);
+addFence(0.0,400.0,[
+    [0.0,0.0],
+    [50.0,0.0],
+    [50.0,20,0],
+    [0.0,20.0]
+]);
+addFence(0.0,0.0,[
+    [0.0,0.0],
+    [10.0,0.0],
+    [10.0,200,0],
+    [0.0,200.0]
+]);
+
 
 // Define the dynamic body. We set its position and call the body factory.
 var dogBody = world.createBody({
