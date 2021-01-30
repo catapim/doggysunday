@@ -3,9 +3,38 @@ function render() {
     // iterate over bodies and fixtures
     ctx.clearRect(0, 0, WIDTH, HEIGHT);
 
-    var dog_sprite = new Image();
-    dog_sprite.src="./src/img/dog.gif"
-    console.log(dog_sprite.src)
+    // DOG
+    var sprite = new Image();
+    sprite.src="./src/img/dog.gif"
+    console.log(sprite.src)
+    let numColumns = 7;
+    let numRows = 1;
+    // Define the size of a frame
+    let frameWidth = sprite.width / numColumns;
+    let frameHeight = sprite.height / numRows;
+
+    let currentFrame = 0
+
+    setInterval(function()
+    {
+        // Pick a new frame
+        currentFrame++;    
+        // Make the frames loop
+        let maxFrame = numColumns * numRows - 1;
+        if (currentFrame > maxFrame){
+            currentFrame = 0;
+        }
+    
+        // Update rows and columns
+        let column = currentFrame % numColumns;
+        let row = Math.floor(currentFrame / numColumns);
+    
+        // Clear and draw
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(sprite, column * frameWidth, row * frameHeight, frameWidth, frameHeight, 10, 30, frameWidth, frameHeight);
+    
+    //Wait for next step in the loop
+    }, 1);
 
     for (let body = world.getBodyList(); body; body = body.getNext()) {
         // for (var fixture = body.getFixtureList(); fixture; fixture = fixture.getNext()) {
@@ -34,11 +63,10 @@ function render() {
 
         } else {
            
-            ctx.fillStyle = "#FF0000";
-
-       
+            ctx.fillStyle = "#FF0000";       
             // ctx.fillRect(p.x-8, p.y-8, 16, 16);
-            ctx.drawImage(dog_sprite,p.x-8, p.y-8, 16, 16)
+            ctx.drawImage(sprite,p.x-8, p.y-8, 16, 16)
+
         }
         
 
