@@ -4,7 +4,8 @@ class Fence {
         var groundBodyDef = {
             position: Vec2(x, y),
             userData: "fence",
-            type: 'static'
+            type: 'static',
+            fixedRotation: true
         };
 
         // Call the body factory which allocates memory for the ground body
