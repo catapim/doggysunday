@@ -27,6 +27,8 @@
                 for (var fixture = body.getFixtureList(); fixture; fixture = fixture.getNext()) {
                     // draw or update fixture
                 }
+                let shape=body.getFixtureList().getShape();
+                // console.log(shape);
                 let p=body.getPosition();
                 if(body.getUserData()=="ground") {
                     ctx.fillStyle = "#000000";
