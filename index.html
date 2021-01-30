@@ -1,46 +1,50 @@
 <html>
-    <script src="./js/planck.min.js"></script>
+<script src="./js/planck.min.js"></script>
 
-    <body>
-        <canvas width="640" height="480" id="canvas">
+<body>
+    <canvas width="640" height="480" id="canvas">
 
-        </canvas>
-    </body>
-    <script src="./js/world.js"></script>
-    <script src="./js/controls.js"></script>
+    </canvas>
+</body>
+<script src="./js/world.js"></script>
+<script src="./js/controls.js"></script>
 
-    <script>
-       
-
-        // rendering loop
-
-        var canvas = document.getElementById("canvas");
-        var ctx = canvas.getContext("2d");
+<script>
 
 
-        (function loop() {
-            // in each frame call world.step(timeStep) with fixed timeStep
-            world.step(1 / 60);
-            // iterate over bodies and fixtures
-            ctx.clearRect(0, 0, WIDTH, HEIGHT);
-            for (var body = world.getBodyList(); body; body = body.getNext()) {
-                for (var fixture = body.getFixtureList(); fixture; fixture = fixture.getNext()) {
-                    // draw or update fixture
-                }
-                let p=body.getPosition();
-                if(body.getUserData()=="ground") {
-                    ctx.fillStyle = "#000000";
+    // rendering loop
 
-                } else {
-                    ctx.fillStyle = "#FF0000";
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
 
-                }
-                ctx.fillRect(p.x, p.y, 10, 10); 
+
+    (function loop() {
+        // in each frame call world.step(timeStep) with fixed timeStep
+        world.step(1 / 60);
+        // iterate over bodies and fixtures
+        ctx.clearRect(0, 0, WIDTH, HEIGHT);
+        for (var body = world.getBodyList(); body; body = body.getNext()) {
+            for (var fixture = body.getFixtureList(); fixture; fixture = fixture.getNext()) {
+                // draw or update fixture
+            }
+            let p = body.getPosition();
+            if (body.getUserData() == "ground") {
+                ctx.fillStyle = "#000000";
+
+            } else {
+                ctx.fillStyle = "#FF0000";
 
             }
-            // request a new frame
-            window.requestAnimationFrame(loop);
-        })();
+            ctx.fillRect(p.x, p.y, 10, 10);
 
-    </script>
+        }
+        // request a new frame
+        window.requestAnimationFrame(loop);
+        getKey();
+    })();
+
+
+
+</script>
+
 </html>
