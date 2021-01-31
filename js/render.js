@@ -199,15 +199,21 @@ function render() {
 
     )
     // cloud
-    ctx.drawImage(
-        cloud_sprite,
-        // 0,0,
-        (camera_x*SCALE)-cloud_x,
-        camera_y*SCALE-cloud_y,
-        1080,
-        1080,
-        // requestAnimationFrame(0);
-    )
+    for(let i=0;i<cloud_sprites.length;i++) {
+        let cloud_x=(i*3000)+(this.ticks/10);
+        let cloud_y=i*600;
+        cloud_x=cloud_x%1920;
+        ctx.drawImage(
+            cloud_sprites[i],
+            // 0,0,
+            (camera_x*SCALE)-cloud_x,
+            camera_y*SCALE-cloud_y,
+            2080,
+            1000,
+            // requestAnimationFrame(0);
+        )
+    }
+
     
 
     // request a new frame
