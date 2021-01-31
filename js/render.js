@@ -63,6 +63,8 @@ function render() {
     // score
     document.getElementById("score").innerHTML="SHEEP FOUND "+sheep_found+" / "+TOTAL_SHEEP;
     document.getElementById("how-to");
+    // document.getElementById("cloud").innerHTML="<img src=\"./src/img/cloud.gif\">";
+
     // setTimeout()
 
 

@@ -30,6 +30,11 @@ canvas {
 
 }
 
+#cloud {
+    z-index: 2000;
+
+}
+
 #how-to {
     /* top:0; */
     bottom:0;
