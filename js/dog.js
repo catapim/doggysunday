@@ -46,7 +46,6 @@ class Dog {
   bark() {
     this.barking=true;
     this.bark_cooldown=100;
-    console.log("GUAU");
     playSound("bark")
   }
   tick() {
