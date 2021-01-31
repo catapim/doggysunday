@@ -18,8 +18,12 @@ function render() {
     ctx.fillStyle = pattern
     ctx.fillRect(0,0, WIDTH, HEIGHT)
     dt=Date.now()-elapsed;
-    console.log(dt);
     elapsed=Date.now();
+    world.step(1/60,elapsed/1000);
+    bodylist=world.getBodyList();
+    // dog.dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
+    world.clearForces();
+    dog.dogBody.applyForce(Vec2(x_axis,y_axis),dog.dogBody.getPosition())
 
     // // DOG
 
@@ -100,16 +104,16 @@ function render() {
 
 }
 window.requestAnimationFrame(render);
-setInterval(function(){
-    // var current = Date.now(),
-    // elapsed = current - start;
-    // start = current;
-    // console.log(elapsed);
+// setInterval(function(){
+//     // var current = Date.now(),
+//     // elapsed = current - start;
+//     // start = current;
+//     // console.log(elapsed);
     
-    world.step(1/60,elapsed/1000);
-    bodylist=world.getBodyList();
-    // dog.dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
-    world.clearForces();
-    dog.dogBody.applyForce(Vec2(x_axis,y_axis),dog.dogBody.getPosition())
+//     world.step(1/60,elapsed/1000);
+//     bodylist=world.getBodyList();
+//     // dog.dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
+//     world.clearForces();
+//     dog.dogBody.applyForce(Vec2(x_axis,y_axis),dog.dogBody.getPosition())
 
-},1000/60)
+// },1000/60)
