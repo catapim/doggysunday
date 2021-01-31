@@ -214,8 +214,7 @@ function render() {
 }
 window.requestAnimationFrame(render);
 
-// loop music
-loopMusic();
+
 // randomSheepSound();
 
 setInterval(function(){
@@ -248,7 +247,8 @@ setInterval(function(){
             will_bark=false;
             if(!dog.bark_cooldown>0) {
                 dog.bark();
-
+                // loop music
+                loopMusic();
                     
                 for(let i=0;i<herd.length;i++) {
               
@@ -285,6 +285,12 @@ setInterval(function(){
                         if(force_x!=0||force_y!=0) {
                             herd[i].move(force_x,force_y)
                             herd[i].frighten();
+                            if(Math.random()>0.8) {
+                                setTimeout(function(){
+                                    playSound("sheep");
+                        
+                                },Math.random()*300)
+                            }
                         }
                     }
                 

@@ -1,15 +1,27 @@
+
+var sound_samples={
+    "bark":new Audio("./src/sound/bark.wav"),
+    "sheep":new Audio("./src/sound/sheep.wav"),
+
+};
 function playSound(filename) {
-    var audio = new Audio("./src/sound/" + filename + ".wav");
+    let audio=new Audio();
+    audio.src=sound_samples[filename].src;
     audio.play();
-  }
+}
+let music_looping=false;
+var song_audio = new Audio("./src/sound/doggy_sunday.wav")
 
 function loopMusic() {
-    var audio = new Audio("./src/sound/doggy_sunday.wav")
-    audio.addEventListener("ended", function() {
-        this.currentTime=0;
-        this.play();
-    })
-    audio.play();
+    if(music_looping==false) {
+        music_looping=true;
+        song_audio.addEventListener("ended", function() {
+            this.currentTime=0;
+            this.play();
+        })
+        song_audio.play();
+    }
+
 }
 
 function randomSheepSound() {
