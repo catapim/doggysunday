@@ -7,7 +7,8 @@ class Dog {
             userData: "dog",
             type: 'dynamic',
             linearDamping: 10.0,
-            angularDamping: 0.01
+            angularDamping: 0.01,
+            allowSleep:false
         };
 
         // Call the body factory which allocates memory for the ground body
