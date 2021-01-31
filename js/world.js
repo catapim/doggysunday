@@ -1,7 +1,7 @@
 const WIDTH=640;
 const HEIGHT=480;
 const SCALE=256;
-const SPRITE_SIZE=16;
+const SPRITE_SIZE=32;
 const TOTAL_SHEEP=10;
 var Vec2 = planck.Vec2;
 
@@ -41,6 +41,8 @@ var timeStep = 1.0 / 30.0;
 var velocityIterations = 1;
 var positionIterations = 1;
 let flowers=[];
+let bush=[];
+
 for(i=0;i<1000;i++) {
     let x=Math.round(Math.random()*10000);
 
