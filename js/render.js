@@ -19,9 +19,7 @@ flower_sprite.src="./src/img/white-flower.gif"
 var bush_sprite = new Image();
 bush_sprite.src="./src/img/bush.gif"
 
-// CLOUD
-var cloud_sprite = new Image();
-cloud_sprite.src="./src/img/cloud1.png"
+
 
 // HOUSE
 var house_sprite = new Image();
@@ -33,6 +31,7 @@ var fps = 60;
 //Get the start time
 var start = Date.now()
 var last_frame=Date.now();
+var ticks=0;
 var elapsed;
 function drawPolygon(shape) {
     var vertices = shape.m_vertices;
@@ -200,15 +199,22 @@ function render() {
 
     )
     // cloud
-    ctx.drawImage(
-        cloud_sprite,
-        // 0,0,
-        (camera_x*SCALE)-cloud_x,
-        camera_y*SCALE-cloud_y,
-        1080,
-        1080,
-        // requestAnimationFrame(0);
-    )
+    for(let i=0;i<cloud_sprites.length;i++) {
+        let cloud_x=(i*1000)+(this.ticks*i/10);
+        let cloud_y=i*400;
+        cloud_x=(cloud_x%4000)-1000;
+        cloud_y=cloud_y%4000;
+        ctx.drawImage(
+            cloud_sprites[i],
+            // 0,0,
+            (camera_x*SCALE)-cloud_x,
+            camera_y*SCALE-cloud_y,
+            4000,
+            1000,
+            // requestAnimationFrame(0);
+        )
+    }
+
     
 
     // request a new frame
@@ -227,7 +233,7 @@ setInterval(function(){
     // console.log(elapsed);
 // randomSheepSound();
 
-    
+    ticks++;
     world.step(1/60);
     bodylist=world.getBodyList();
     // dog.dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
@@ -288,9 +294,11 @@ setInterval(function(){
                         if(force_x!=0||force_y!=0) {
                             herd[i].move(force_x,force_y)
                             herd[i].frighten();
-                            if(Math.random()>0.8) {
+                            if(Math.random()>0.2) {
                                 setTimeout(function(){
-                                    playSound("sheep");
+                                    // playSound("sheep",Math.min(1.0,Math.max(0.0,2.0-d)));
+
+                                    playSound("sheep",0.4);
                         
                                 },Math.random()*300)
                             }
