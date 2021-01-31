@@ -1,5 +1,6 @@
 class Dog {
     dogBody=null;
+    dogSize=0.1;
     constructor(x,y) {
         // Define the ground body.
         let dogBodyDef = {
@@ -18,7 +19,7 @@ class Dog {
 
         // Define the ground box shape.
         // The extents are the half-widths of the box.
-        var dogBox = planck.Box(0.1, 0.1);
+        var dogBox = planck.Box(this.dogSize, this.dogSize);
         // let box = planck.Circle(Vec2(0.0,0.0), 8.0);
 
         // Define the dynamic body fixture.
@@ -39,8 +40,8 @@ class Dog {
     render(ctx) {
         // console.log('dog render');
         let p=this.dogBody.getPosition();
-        
-        ctx.drawImage(dog_sprite,p.x*SCALE, p.y*SCALE, SCALE*0.1, SCALE*0.1)
+        let dogSizeInPixels= SCALE*this.dogSize;
+        ctx.drawImage(dog_sprite,p.x*SCALE, p.y*SCALE,dogSizeInPixels, dogSizeInPixels);
     }
     
 }
