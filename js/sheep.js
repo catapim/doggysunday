@@ -40,11 +40,11 @@ class Sheep {
 
 		let v=this.body.getLinearVelocity();
 		if(v.x>0.01) {
-			this.direction_frame=2;
+			this.direction_frame=6;
 		} else if(v.y>0.01) {
 			this.direction_frame=4;
 		} else if(v.x<-0.01) {
-			this.direction_frame=6;
+			this.direction_frame=2;
 		} else if(v.y<-0.01) {
 			this.direction_frame=0;
 				
@@ -75,8 +75,8 @@ class Sheep {
 			0,
 			SPRITE_SIZE,
 			SPRITE_SIZE,
-			p.x * SCALE,
-			p.y * SCALE,
+			(camera_x-p.x) * SCALE, // position x
+			(camera_y-p.y) * SCALE, // position y
 			sheepSizeInPixels,
 			sheepSizeInPixels
 

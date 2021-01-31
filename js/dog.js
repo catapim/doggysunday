@@ -45,7 +45,7 @@ class Dog {
   }
   bark() {
     this.barking=true;
-    this.bark_cooldown=100;
+    this.bark_cooldown=32;
     playSound("bark")
   }
   tick() {
@@ -54,16 +54,16 @@ class Dog {
   
 		let v=this.dogBody.getLinearVelocity();
 		if(v.x>0.01) {
-			this.direction_frame=6;
-		} else if(v.y>0.01) {
-			this.direction_frame=4;
-		} else if(v.x<-0.01) {
 			this.direction_frame=2;
-		} else if(v.y<-0.01) {
+		} else if(v.y>0.01) {
 			this.direction_frame=0;
+		} else if(v.x<-0.01) {
+			this.direction_frame=6;
+		} else if(v.y<-0.01) {
+			this.direction_frame=4;
 				
 		} else {
-			this.direction_frame=0;
+			this.direction_frame=4;
     }
     let anim_velocity=10;
     this.animation_ticks=this.animation_ticks+1+Math.round(Math.abs(v.y*anim_velocity))+Math.round(Math.abs(v.x*anim_velocity));
@@ -81,13 +81,13 @@ class Dog {
     
 
     ctx.drawImage(
-      dog_sprite,
-      this.sprite_frame * SPRITE_SIZE,
-      0,
-      SPRITE_SIZE,
-      SPRITE_SIZE,
-      p.x * SCALE,
-      p.y * SCALE,
+      dog_sprite, // image
+      this.sprite_frame * SPRITE_SIZE, // start clipping x
+      0, // start clipping y
+      SPRITE_SIZE, // width clip
+      SPRITE_SIZE, // height clip
+      (camera_x-p.x) * SCALE, // position x
+      (camera_y-p.y) * SCALE, // position y
       dogSizeInPixels,
       dogSizeInPixels
     );

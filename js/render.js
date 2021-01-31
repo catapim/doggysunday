@@ -1,3 +1,7 @@
+// Camera
+var camera_x=0.0;
+var camera_y=0.0;
+
 // DOG
 var dog_sprite = new Image();
 dog_sprite.src="./src/img/dog.gif"
@@ -27,8 +31,8 @@ function drawPolygon(shape) {
 
     for (var i = 0; i < vertices.length; i++) {
         var v = vertices[i];
-        let x=(v.x*SCALE)+16;
-        let y=(v.y*SCALE)+16;
+        let x=((camera_x-v.x)*SCALE)+16;
+        let y=((camera_y-v.y)*SCALE)+16;
         
         if (i == 0) {
             ctx.moveTo(x, y);
@@ -55,7 +59,7 @@ function render() {
     ctx.fillRect(0,0, WIDTH, HEIGHT)
     dt=Date.now()-elapsed;
     elapsed=Date.now();
-    document.getElementById("debug-info").innerHTML=x_axis;
+    // document.getElementById("debug-info").innerHTML=camera_x;
     // score
     document.getElementById("score").innerHTML="SHEEP FOUND "+sheep_found+" / "+TOTAL_SHEEP;
     document.getElementById("how-to");
@@ -104,8 +108,8 @@ function render() {
         // console.log(flowerd[0])
         ctx.drawImage(
             flower_sprite,
-            flowers[i][0],
-            flowers[i][1],
+            (camera_x*SCALE)-flowers[i][0],
+            (camera_y*SCALE)-flowers[i][1],
             32,
             32
     
@@ -117,8 +121,8 @@ function render() {
         // console.log(flowerd[0])
         ctx.drawImage(
             bush_sprite,
-            bush[i][0],
-            bush[i][1],
+            (camera_x*SCALE)-bush[i][0],
+            (camera_y*SCALE)-bush[i][1],
             32,
             32
     
@@ -194,33 +198,37 @@ setInterval(function(){
     if(typeof(dog)!="undefined") {
         dog.move(x_axis,y_axis);
         dog.tick();
+        let dp=dog.dogBody.getPosition(); // dog position
+        // update camera
+        camera_x=dp.x+1.0;
+        camera_y=dp.y+1.0;
         if(will_bark) {
             will_bark=false;
             if(!dog.bark_cooldown>0) {
                 dog.bark();
+
+                    
                 for(let i=0;i<herd.length;i++) {
-                    let dp=dog.dogBody.getPosition(); // dog position
+              
                     let sp=herd[i].body.getPosition(); // sheep position
                     var d = Math.sqrt( (sp.x-dp.x)*(sp.x-dp.x) + (sp.y-dp.y)*(sp.y-dp.y) ); // distance
                     if(d<1 && !herd[i].isFound()) {
                         let force_x=0;
                         let force_y=0;
                         // console.log(dp.y,sp.y)
-                        let sheep_force=20.0;
-                        if(sp.x>dp.x) {
-                            // dog is to the left of sheep
-                            force_x=sheep_force;
-                        } else {
-                            // dog is to the right of sheep
-                            force_x=-sheep_force;
-                        }
-                        if(sp.y>dp.y) {
-                            // dog is below of sheep
-                            force_y=sheep_force;
-                        } else  {
-                            // dog is above of sheep
-                            force_y=-sheep_force;
-                        }
+                        let sheep_force=50.0-(d*2);
+                        let angle=Math.atan2(sp.y-dp.y,sp.x-dp.x);
+                        // console.log(angle);
+                        // if(sp.x>dp.x) {
+                        //     // dog is to the left of sheep
+                        //     force_x=sheep_force;
+                        // } else {
+                        //     // dog is to the right of sheep
+                        //     force_x=-sheep_force;
+                        // }
+                        force_x=Math.cos(angle)*sheep_force;
+                        force_y=Math.sin(angle)*sheep_force;
+
     
                         // if(sp.y>dp.y) {
                         //     // dog is to the left of sheep

@@ -2,7 +2,7 @@ const WIDTH=6400;
 const HEIGHT=4800;
 const SCALE=256;
 const SPRITE_SIZE=32;
-const TOTAL_SHEEP=10;
+const TOTAL_SHEEP=20;
 var Vec2 = planck.Vec2;
 
 // Define the gravity vector.
