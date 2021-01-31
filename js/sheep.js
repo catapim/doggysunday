@@ -68,7 +68,6 @@ class Sheep {
 					if(p.x>4) random_x=-20.0;
 					if(p.x<2) random_x=20.0;
 
-					console.log(p.x,random_x);
 					this.move(random_x,random_y);
 				}
 			}
