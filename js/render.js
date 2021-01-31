@@ -58,6 +58,7 @@ function render() {
     document.getElementById("debug-info").innerHTML=x_axis;
     // score
     document.getElementById("score").innerHTML="SHEEP FOUND "+sheep_found+" / "+TOTAL_SHEEP;
+    document.getElementById("how-to");
 
     // // DOG
 

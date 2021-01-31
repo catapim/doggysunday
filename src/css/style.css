@@ -29,6 +29,30 @@ canvas {
     color: yellow;
 
 }
+
+#how-to {
+    /* top:0; */
+    bottom:0;
+    right:0;
+    position: fixed;
+    z-index: 2;
+    background-color: green;
+    color: yellow;
+    width:180px;
+    padding:5px;
+}
+
+#how-to h1 {
+    font-size: 18px;
+}
+#how-to h2{
+    font-size:13px;
+}
+
+#how-to h3{
+    font-size:10px;
+}
+
 @font-face {
     font-family: 'BIOS';
     src: url('../fonts/Web437_IBM_BIOS.woff') format('woff');
