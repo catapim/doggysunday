@@ -25,11 +25,3 @@ class Sheep {
         body.createFixture(box, 0.0);
     }
 }
-
-var sheepNum = 5
-var i;
-for (i =0; i < sheepNum; i++) {
-    var xRandom = 1+Math.ceil(Math.random()*sheepNum*1)/10;
-    var yRandom = 1+Math.ceil(Math.random()*sheepNum*3)/10;
-    new Sheep(xRandom, yRandom)
-}
