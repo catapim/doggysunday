@@ -59,7 +59,7 @@ function render() {
     // score
     document.getElementById("score").innerHTML="SHEEP FOUND "+sheep_found+" / "+TOTAL_SHEEP;
     document.getElementById("how-to");
-    setTimeout()
+    // setTimeout()
 
 
     // // DOG
@@ -248,7 +248,7 @@ setInterval(function(){
 
 },1000/60)
 
-setTimeout(function(){
-    console.log('hide')
-    document.getElementById("how-to").style.display="none"
-}, 10000)
+// setTimeout(function(){
+//     console.log('hide')
+//     document.getElementById("how-to").style.display="none"
+// }, 10000)
