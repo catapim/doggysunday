@@ -1,5 +1,5 @@
-const WIDTH=640;
-const HEIGHT=480;
+const WIDTH=6400;
+const HEIGHT=4800;
 const SCALE=256;
 const SPRITE_SIZE=16;
 const TOTAL_SHEEP=10;

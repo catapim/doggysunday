@@ -12,7 +12,7 @@ class Sheep {
             type: 'dynamic',
             linearDamping: 1.0,
             angularDamping: 0.01,
-            allowSleep:true,
+            allowSleep:false,
             bullet: false
         };
 
@@ -39,7 +39,9 @@ class Sheep {
 	// 	this.body.applyForce(Vec2(x_axis, y_axis), this.body.getPosition());
 
 	// }
-
+	move(x_axis, y_axis) {
+		this.body.applyForce(Vec2(x_axis, y_axis), this.body.getPosition());
+	  }
 	render(ctx) {
         // console.log("render")
 		let p = this.body.getPosition();
