@@ -14,7 +14,7 @@ function playSound(filename,volume) {
     sound_samples[filename].play();
 }
 let music_looping=false;
-var song_audio = new Audio("./src/sound/doggy_sunday.wav")
+var song_audio = new Audio("./src/sound/doggy_sunday.mp3")
 
 function loopMusic() {
     if(music_looping==false) {
