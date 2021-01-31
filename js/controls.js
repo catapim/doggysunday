@@ -47,8 +47,8 @@ document.addEventListener("keyup", function (event) {
 var timeout = 3;
 document.addEventListener("keyup", function (event) {
   if (event.key === " ") {
-
       will_bark = true;
-    
   } 
 });
+
+
