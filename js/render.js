@@ -209,6 +209,18 @@ setInterval(function(){
 
     // dog
     if(typeof(dog)!="undefined") {
+        x_axis=0;
+        y_axis=0;
+        if(right_pressed) {
+            x_axis=force*-1;
+        } else if(left_pressed) {
+            x_axis=force;
+        }
+        if(up_pressed) {
+            y_axis=force;
+        } else if(down_presed) {
+            y_axis=force*-1;
+        }
         dog.move(x_axis,y_axis);
         dog.tick();
         let dp=dog.dogBody.getPosition(); // dog position
