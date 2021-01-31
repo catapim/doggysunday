@@ -43,11 +43,11 @@ class Sheep {
 		if(v.x>0.01) {
 			this.direction_frame=6;
 		} else if(v.y>0.01) {
-			this.direction_frame=4;
+			this.direction_frame=0;
 		} else if(v.x<-0.01) {
 			this.direction_frame=2;
 		} else if(v.y<-0.01) {
-			this.direction_frame=0;
+			this.direction_frame=4;
 				
 		} else {
 			this.direction_frame=0;
