@@ -43,6 +43,7 @@ class Dog {
     this.barking=true;
     this.bark_cooldown=100;
     console.log("GUAU");
+    playSound("bark")
   }
   tick() {
     this.animation_frame = Math.round((this.ticks / 100) % 1);
