@@ -1,9 +1,13 @@
 var dog_sprite = new Image();
 dog_sprite.src = "./src/img/dog.gif";
 var bg = new Image();
-bg.src = "./src/img/grass0.gif";
+bg.src="./src/img/grass0.gif" 
+var bodylist=null;
+//Set the frame rate
+var fps = 60,
+//Get the start time
+start = Date.now()
 
-var bodylist = null;
 function render() {
   // iterate over bodies and fixtures
   ctx.clearRect(0, 0, WIDTH, HEIGHT);
@@ -100,7 +104,12 @@ function render() {
 }
 window.requestAnimationFrame(render);
 setInterval(function(){
-    world.step(1/60,1,1);
+    var current = Date.now(),
+    elapsed = current - start;
+    start = current;
+    // console.log(elapsed);
+    
+    world.step(1/60,elapsed/1000);
     bodylist=world.getBodyList();
     // dog.dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
     this.world.clearForces();

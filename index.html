@@ -1,8 +1,36 @@
 <html>
-<script src="./js/planck.min.js"></script>
+    <head>
+        <style>
+            body, html {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                height:100%;
+            }
+            canvas {
+                top:0;
+                left:0;
+                right: 0;
+                bottom:0;
+                position: fixed;
+                z-index:0;
+            }
+            #debug-info {
+                top:bottom;
+                left:0;
+                right: 0;
+                position: fixed;
+                z-index: 2;
+            }
+        </style>
+    </head>
+<script src="./vendor/planck-with-testbed.min.js"></script>
 
 <body>
-    <canvas width="640" height="480" id="canvas">
+    <div id="debug-info">
+        VERSION 0.1
+    </div>
+    <canvas width="640" height="480" id="canvas" tabindex="1">
 
     </canvas>
 </body>
@@ -13,14 +41,25 @@
 <script src="./js/controls.js"></script>
 
 <script>
-
-
-    // rendering loop
+    // initialize canvas
 
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
     canvas.width=WIDTH;
     canvas.height=HEIGHT;
+    // when window is resized, canvas must be resized
+    function resize_canvas_to_window_size() {
+        canvas.width=document.body.clientWidth;
+        canvas.height=document.body.clientHeight;
+    }
+    window.addEventListener('resize', resize_canvas_to_window_size);
+
+    // when DOM is loaded, resize canvas for first time and set focus
+    document.addEventListener('DOMContentLoaded', function () {
+        resize_canvas_to_window_size();
+        canvas.focus();
+
+    });
 </script>
 <script src="./js/render.js"></script>
 
