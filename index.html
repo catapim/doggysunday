@@ -1,8 +1,29 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="src/css/style.css">
-    </head>
+
+<head>
+    <meta charset="URF-8">
+    <link rel="favicon" href="src/img/favicon.ico" type="image/x-icon">
+    <meta name="description"
+        content="Bark and find the lost sheep and help them get into the farm. Global Game Jam 2021.">
+    <meta name="keywords" content="HTML, CSS, JavaScript, Planck, Game Jam, Gobal Game Jam, Pixel Art">
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://catapim.github.io/doggysunday/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Doggy Sunday. Global Game Jam 2021">
+    <meta property="og:description"
+        content="Bark and find the lost sheep and help them get into the farm. Global Game Jam 2021.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/catapim/doggysunday/main/src/img/og.png">
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="catapim.github.io">
+    <meta property="twitter:url" content="https://catapim.github.io/doggysunday/">
+    <meta name="twitter:title" content="Doggy Sunday. Global Game Jam 2021">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/catapim/doggysunday/main/src/img/og.png">
+
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
 <script src="./vendor/planck-with-testbed.min.js"></script>
 
 <body>
@@ -13,7 +34,7 @@
     <div id="how-to">
         <h1>DOGGY SUNDAY</h1>
         <h2>find the lost sheep</h2>
-        <h2>help them to get into the fence</h2>
+        <h2>help them to get into the farm</h2>
         <h3>SPACE = BARK</h3>
         <h3>WASD = MOVE</h3>
     </div>
@@ -36,13 +57,13 @@
 
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
-    canvas.width=WIDTH;
-    canvas.height=HEIGHT;
+    canvas.width = WIDTH;
+    canvas.height = HEIGHT;
 
     // when window is resized, canvas must be resized
     function resize_canvas_to_window_size() {
-        canvas.width=document.body.clientWidth;
-        canvas.height=document.body.clientHeight;
+        canvas.width = document.body.clientWidth;
+        canvas.height = document.body.clientHeight;
     }
     window.addEventListener('resize', resize_canvas_to_window_size);
 
@@ -52,49 +73,49 @@
     document.addEventListener('DOMContentLoaded', function () {
         resize_canvas_to_window_size();
         canvas.focus();
-        dog=new Dog(1.0, 1.0)
-        sheep=new Sheep(1.0,1.0)
-        herd=[];
+        dog = new Dog(1.0, 1.0)
+        sheep = new Sheep(1.0, 1.0)
+        herd = [];
         var i;
-        for (i =0; i < TOTAL_SHEEP; i++) {
-            var xRandom = 1+Math.ceil(Math.random()*TOTAL_SHEEP*1)/10;
-            var yRandom = 1+Math.ceil(Math.random()*TOTAL_SHEEP*2)/10;
+        for (i = 0; i < TOTAL_SHEEP; i++) {
+            var xRandom = 1 + Math.ceil(Math.random() * TOTAL_SHEEP * 1) / 10;
+            var yRandom = 1 + Math.ceil(Math.random() * TOTAL_SHEEP * 2) / 10;
             herd.push(new Sheep(xRandom, yRandom))
         }
         // left fence
         new Fence([
-            [0.0,0.0],
-            [0.1,0.0],
-            [0.1,10],
-            [0.0,10]
+            [0.0, 0.0],
+            [0.1, 0.0],
+            [0.1, 10],
+            [0.0, 10]
         ]);
         // top fence 1
         new Fence([
-            [0.0,0.0],
-            [1,0.0],
-            [1,0.1],
-            [0.0,0.1]
+            [0.0, 0.0],
+            [1, 0.0],
+            [1, 0.1],
+            [0.0, 0.1]
         ]);
         // top fence 2
         new Fence([
-            [1.5,0.0],
-            [4.5,0.0],
-            [4.5,0.1],
-            [1.5,0.1]
+            [1.5, 0.0],
+            [4.5, 0.0],
+            [4.5, 0.1],
+            [1.5, 0.1]
         ]);
         // right fence
         new Fence([
-            [4.4,0.0],
-            [4.4,10],
-            [4.5,0],
+            [4.4, 0.0],
+            [4.4, 10],
+            [4.5, 0],
             [4.5, 10]
         ]);
         // bottom fence 2
         new Fence([
-            [0.0,10.0],
+            [0.0, 10.0],
             [4.5, 10],
-            [4.5,10.1],
-            [0.0,10.1]
+            [4.5, 10.1],
+            [0.0, 10.1]
         ]);
     });
 </script>
