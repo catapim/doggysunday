@@ -200,9 +200,10 @@ function render() {
     )
     // cloud
     for(let i=0;i<cloud_sprites.length;i++) {
-        let cloud_x=(i*3000)+(this.ticks/10);
+        let cloud_x=(i*1000)+(this.ticks*i/10);
         let cloud_y=i*600;
-        cloud_x=cloud_x%1920;
+        cloud_x=(cloud_x%4000)-1000;
+        cloud_y=cloud_y%4000;
         ctx.drawImage(
             cloud_sprites[i],
             // 0,0,
