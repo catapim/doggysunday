@@ -11,7 +11,7 @@ start = Date.now()
 function render() {
     
     // iterate over bodies and fixtures
-    ctx.clearRect(0, 0, WIDTH, HEIGHT);
+    // ctx.clearRect(0, 0, WIDTH, HEIGHT);
     // BACKGROUND
     var pattern = ctx.createPattern(bg, 'repeat');
     ctx.fillStyle = pattern
