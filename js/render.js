@@ -72,8 +72,8 @@ function render() {
     elapsed=Date.now();
     // document.getElementById("debug-info").innerHTML=camera_x;
     // score
-    document.getElementById("score").innerHTML="SHEEP FOUND "+sheep_found+" / "+TOTAL_SHEEP;
-    document.getElementById("how-to");
+
+    // document.getElementById("how-to");
     // document.getElementById("cloud").innerHTML="<img src=\"./src/img/cloud.gif\">";
 
     // setTimeout()
@@ -239,11 +239,18 @@ setInterval(function(){
     // dog.dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
     world.clearForces();
     // loop through sheep
-    sheep_found=0;
+    sheep_count=0;
+    // sheep_found=0;
     for(let i=0;i<herd.length;i++) {
         herd[i].tick();
-        if(herd[i].isFound()) sheep_found+=1;
+        if(herd[i].isFound()) sheep_count+=1;
     }
+    if(sheep_count!=sheep_found) {
+        sheep_found=sheep_count;
+        document.getElementById("score").innerHTML="SHEEP FOUND "+sheep_found+" / "+TOTAL_SHEEP;
+
+    }
+
     // dog
     if(typeof(dog)!="undefined") {
         dog.move(x_axis,y_axis);
