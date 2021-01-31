@@ -66,7 +66,7 @@ class Dog {
 			this.direction_frame=4;
     }
     let anim_velocity=10;
-    this.animation_ticks=this.animation_ticks+1+Math.round(Math.abs(v.y*anim_velocity))+Math.round(Math.abs(v.x*anim_velocity));
+    this.animation_ticks=this.animation_ticks+1+Math.round(Math.max(Math.abs(v.y*anim_velocity),Math.abs(v.x*anim_velocity)));
 
     this.sprite_frame = this.direction_frame + this.animation_frame;
     this.ticks++;
