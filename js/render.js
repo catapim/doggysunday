@@ -213,13 +213,19 @@ function render() {
 
 }
 window.requestAnimationFrame(render);
-playSound("doggy_sunday")
+
+// loop music
+loopMusic();
+// randomSheepSound();
+
 setInterval(function(){
     // var current = Date.now(),
     // elapsed = current - start;
     // start = current;
     // console.log(elapsed);
-    cloud_x=cloud_x+0.1;
+// randomSheepSound();
+
+    
     world.step(1/60);
     bodylist=world.getBodyList();
     // dog.dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
