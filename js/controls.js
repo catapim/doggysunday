@@ -1,5 +1,5 @@
 var isKeyPressed = false
-var force=1;
+var force=0.1;
 var x_axis=0.0;
 var y_axis=0.0;
 

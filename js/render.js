@@ -100,8 +100,9 @@ setInterval(function(){
     // dog.dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
     world.clearForces();
     if(typeof(dog)!="undefined") {
-        dog.dogBody.applyForce(Vec2(x_axis,y_axis),dog.dogBody.getPosition())
-
+        dog.move(x_axis,y_axis);
+        dog.tick();
     }
+    
 
 },1000/60)

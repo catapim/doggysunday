@@ -1,6 +1,8 @@
 class Dog {
   dogBody = null;
   dogSize = 0.1;
+  ticks=0;
+  animation_frame=0;
   constructor(x, y) {
     // Define the ground body.
     let dogBodyDef = {
@@ -19,7 +21,7 @@ class Dog {
 
     // Define the ground box shape.
     // The extents are the half-widths of the box.
-    var dogBox = planck.Box(this.dogSize, this.dogSize);
+    var dogBox = planck.Circle(Vec2(0.0,0.0), this.dogSize/2);
     // let box = planck.Circle(Vec2(0.0,0.0), 8.0);
 
     // Define the dynamic body fixture.
@@ -34,6 +36,14 @@ class Dog {
     // Add the ground fixture to the ground body.
     // body.createFixture(box, 0.0);
     this.dogBody.createFixture(dogFixtureDef);
+  }
+  tick() {
+      this.animation_frame=Math.round((this.ticks/100)%1)
+      this.ticks++;
+  }
+  move(x_axis,y_axis) {
+    this.dogBody.applyForce(Vec2(x_axis,y_axis),this.dogBody.getPosition())
+    
   }
   render(ctx) {
     // console.log('dog render');
@@ -50,16 +60,17 @@ class Dog {
     // The sprite image frame starts from 0
     let currentFrame = 0;
 
-   
+    let anim_sprite=0+this.animation_frame;
+
     ctx.drawImage(
         dog_sprite, 
-        dogSizeInPixels * p.x, 
-        dogSizeInPixels * p.y, 
+        anim_sprite*SPRITE_SIZE, 
+        0, 
+        SPRITE_SIZE, 
+        SPRITE_SIZE, 
+        p.x*SCALE, 
+        p.y*SCALE, 
         dogSizeInPixels, 
-        frameHeight, 
-        10, 
-        30, 
-        frameWidth, 
-        frameHeight);
+        dogSizeInPixels);
   }
 }

@@ -1,6 +1,7 @@
 const WIDTH=640;
 const HEIGHT=480;
-const SCALE=128;
+const SCALE=256;
+const SPRITE_SIZE=16;
 var Vec2 = planck.Vec2;
 
 // Define the gravity vector.
