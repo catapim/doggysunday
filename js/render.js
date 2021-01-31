@@ -21,7 +21,7 @@ bush_sprite.src="./src/img/bush.gif"
 
 // CLOUD
 var cloud_sprite = new Image();
-cloud_sprite.src="./src/img/cloud.png"
+cloud_sprite.src="./src/img/cloud1.png"
 
 // HOUSE
 var house_sprite = new Image();
@@ -143,6 +143,7 @@ function render() {
             32
     
         )
+        // requestAnimationFrame(0)
     }
 
     
@@ -201,12 +202,14 @@ function render() {
     // cloud
     ctx.drawImage(
         cloud_sprite,
+        // 0,0,
         (camera_x*SCALE)-cloud_x,
         camera_y*SCALE-cloud_y,
-        1024,
-        1024
-
+        1080,
+        1080,
+        // requestAnimationFrame(0);
     )
+    
 
     // request a new frame
     window.requestAnimationFrame(render);
