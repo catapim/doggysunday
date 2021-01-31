@@ -19,9 +19,7 @@ flower_sprite.src="./src/img/white-flower.gif"
 var bush_sprite = new Image();
 bush_sprite.src="./src/img/bush.gif"
 
-// CLOUD
-var cloud_sprite = new Image();
-cloud_sprite.src="./src/img/cloud1.png"
+
 
 // HOUSE
 var house_sprite = new Image();
@@ -33,6 +31,7 @@ var fps = 60;
 //Get the start time
 var start = Date.now()
 var last_frame=Date.now();
+var ticks=0;
 var elapsed;
 function drawPolygon(shape) {
     var vertices = shape.m_vertices;
@@ -227,7 +226,7 @@ setInterval(function(){
     // console.log(elapsed);
 // randomSheepSound();
 
-    
+    ticks++;
     world.step(1/60);
     bodylist=world.getBodyList();
     // dog.dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
