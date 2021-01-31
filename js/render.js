@@ -1,7 +1,8 @@
 // Camera
 var camera_x=0.0;
 var camera_y=0.0;
-
+var camera_center_x=(document.body.clientWidth/2)/SCALE;
+var camera_center_y=(document.body.clientHeight/2)/SCALE;
 // DOG
 var dog_sprite = new Image();
 dog_sprite.src="./src/img/dog.gif"
@@ -17,6 +18,12 @@ flower_sprite.src="./src/img/white-flower.gif"
 // BUSH
 var bush_sprite = new Image();
 bush_sprite.src="./src/img/bush.gif"
+
+// CLOUD
+var cloud_sprite = new Image();
+cloud_sprite.src="./src/img/cloud.gif"
+
+
 
 //Set the frame rate
 var fps = 60;
@@ -49,6 +56,7 @@ function drawPolygon(shape) {
 
 };
 let sheep_found=0;
+let cloud_x=0;
 function render() {
     
     // iterate over bodies and fixtures
@@ -175,7 +183,15 @@ function render() {
             dog.render(ctx);
         }
     // }
-    
+    // cloud
+    ctx.drawImage(
+        cloud_sprite,
+        0,
+        0,
+        1024,
+        1024
+
+    )
 
     // request a new frame
     window.requestAnimationFrame(render);
@@ -205,8 +221,8 @@ setInterval(function(){
         dog.tick();
         let dp=dog.dogBody.getPosition(); // dog position
         // update camera
-        camera_x=dp.x+1.0;
-        camera_y=dp.y+1.0;
+        camera_x=dp.x+camera_center_x;
+        camera_y=dp.y+camera_center_y;
         if(will_bark) {
             will_bark=false;
             if(!dog.bark_cooldown>0) {
