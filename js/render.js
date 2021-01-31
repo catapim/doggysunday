@@ -2,7 +2,6 @@ var dog_sprite = new Image();
 dog_sprite.src="./src/img/dog.gif"
 var bg = new Image();
 bg.src="./src/img/grass0.gif" 
-var bodylist=null;
 //Set the frame rate
 var fps = 60;
 //Get the start time
@@ -19,12 +18,12 @@ function render() {
     ctx.fillRect(0,0, WIDTH, HEIGHT)
     dt=Date.now()-elapsed;
     elapsed=Date.now();
-    world.step(1/60,elapsed/1000);
-    bodylist=world.getBodyList();
+    // world.step(1/60,elapsed/1000);
+    // bodylist=world.getBodyList();
     // dog.dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
-    world.clearForces();
-    dog.dogBody.applyForce(Vec2(x_axis,y_axis),dog.dogBody.getPosition())
-
+    // world.clearForces();
+    // dog.dogBody.applyForce(Vec2(x_axis,y_axis),dog.dogBody.getPosition())
+    document.getElementById("debug-info").innerHTML=x_axis;
     // // DOG
 
     // let numColumns = 7;
@@ -55,8 +54,8 @@ function render() {
     
     // //Wait for next step in the loop
     // }, 1);
-    if(bodylist) {
-        for (let body = bodylist; body; body = body.getNext()) {
+    // if(bodylist) {
+        for (let body = world.getBodyList(); body; body = body.getNext()) {
             // for (var fixture = body.getFixtureList(); fixture; fixture = fixture.getNext()) {
             //     // draw or update fixture
             // }
@@ -96,7 +95,7 @@ function render() {
             
     
         }
-    }
+    // }
     
 
     // request a new frame
@@ -104,16 +103,16 @@ function render() {
 
 }
 window.requestAnimationFrame(render);
-// setInterval(function(){
-//     // var current = Date.now(),
-//     // elapsed = current - start;
-//     // start = current;
-//     // console.log(elapsed);
+setInterval(function(){
+    // var current = Date.now(),
+    // elapsed = current - start;
+    // start = current;
+    // console.log(elapsed);
     
-//     world.step(1/60,elapsed/1000);
-//     bodylist=world.getBodyList();
-//     // dog.dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
-//     world.clearForces();
-//     dog.dogBody.applyForce(Vec2(x_axis,y_axis),dog.dogBody.getPosition())
+    world.step(1/60);
+    bodylist=world.getBodyList();
+    // dog.dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
+    world.clearForces();
+    dog.dogBody.applyForce(Vec2(x_axis,y_axis),dog.dogBody.getPosition())
 
-// },1000/60)
+},1000/60)
