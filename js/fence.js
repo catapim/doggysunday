@@ -1,8 +1,8 @@
 class Fence {
-    constructor(x,y,vertices) {
+    constructor(vertices) {
         // Define the ground body.
         var groundBodyDef = {
-            position: Vec2(x, y),
+            position: Vec2(0.0, 0.0),
             userData: "fence",
             type: 'static',
             fixedRotation: true
