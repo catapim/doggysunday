@@ -1,50 +1,64 @@
-var isKeyPressed = false
-var force=0.1;
-var x_axis=0.0;
-var y_axis=0.0;
-
+var isKeyPressed = false;
+var force = 0.1;
+var x_axis = 0.0;
+var y_axis = 0.0;
+var is_barking = false;
 document.addEventListener("keydown", function (event) {
-  
   switch (event.key) {
     case "w":
       // dogBody.setLinearVelocity(Vec2(0.0, -500.0));
-      y_axis=force*-1;
+      y_axis = force * -1;
       // isKeyPressed = !isKeyPressed
       // dogBody.setLinearVelocity(Vec2(0.0, -500.0));
 
       break;
     case "a":
       // dogBody.setLinearVelocity(Vec2(-500.0, 0.0));
-      x_axis=force*-1;
+      x_axis = force * -1;
       // isKeyPressed = !isKeyPressed
       break;
     case "s":
       // dogBody.setLinearVelocity(Vec2(0.0, 500.0));
       // isKeyPressed = !isKeyPressed
-      y_axis=force;
+      y_axis = force;
       break;
     case "d":
       // dogBody.setLinearVelocity(Vec2(500.0, 0.0));
       // isKeyPressed = !isKeyPressed
-      x_axis=force;
+      x_axis = force;
       break;
     default:
-      // console.log(key);
+    // console.log(key);
   }
-
 });
 
 document.addEventListener("keyup", function (event) {
-  switch(event.key) {
+  switch (event.key) {
     case "w":
-      y_axis=0.0;
+      y_axis = 0.0;
     case "s":
-      y_axis=0.0;
+      y_axis = 0.0;
     case "a":
-      x_axis=0.0;
+      x_axis = 0.0;
     case "d":
-      x_axis=0.0;
+      x_axis = 0.0;
   }
-
 });
-
+var timeout = 3;
+document.addEventListener("keyup", function (event) {
+  if (event.key === " ") {
+    if (is_barking === false) {
+      is_barking = true;
+      console.log("barking!");
+    }
+  }
+  if (is_barking === true) {
+    console.log("if bargin tr..");
+    setTimeout(function () {
+      is_barking = false;
+      console.log("barking false...");
+    }, 3000);
+  } else {
+    console.log("br false");
+  }
+});
