@@ -198,7 +198,10 @@ function render() {
 
 }
 window.requestAnimationFrame(render);
-playSound("doggy_sunday")
+
+// loop music
+loopMusic();
+
 setInterval(function(){
     // var current = Date.now(),
     // elapsed = current - start;
