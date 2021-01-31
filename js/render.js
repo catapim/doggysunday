@@ -201,12 +201,15 @@ window.requestAnimationFrame(render);
 
 // loop music
 loopMusic();
+// randomSheepSound();
 
 setInterval(function(){
     // var current = Date.now(),
     // elapsed = current - start;
     // start = current;
     // console.log(elapsed);
+// randomSheepSound();
+
     
     world.step(1/60);
     bodylist=world.getBodyList();
