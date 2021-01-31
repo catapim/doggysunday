@@ -101,4 +101,4 @@ setInterval(function(){
     this.world.clearForces();
     dog.dogBody.applyForce(Vec2(x_axis,y_axis),dog.dogBody.getPosition())
 
-},20)
+},1000/60)
