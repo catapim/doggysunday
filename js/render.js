@@ -77,18 +77,9 @@ function render() {
                 ctx.fillRect(x, y, SCALE*0.1, SCALE*0.1);
     
     
-            } else {
-               
-                // ctx.fillStyle = "#FF0000";       
-                // ctx.fillRect(p.x-8, p.y-8, 16, 16);
-                // convert world position to screen positions
-                let x=p.x*SCALE
-                let y=p.y*SCALE
-    
-                ctx.drawImage(dog_sprite,x, y, SCALE*0.1, SCALE*0.1)
-            }
+            } 
             
-    
+            dog.render(ctx);
         }
     // }
     

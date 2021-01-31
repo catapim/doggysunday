@@ -4,7 +4,6 @@ var x_axis=0.0;
 var y_axis=0.0;
 
 document.addEventListener("keydown", function (event) {
-  console.log(event.key);
   
   switch (event.key) {
     case "w":

@@ -36,6 +36,12 @@ class Dog {
         this.dogBody.createFixture(dogFixtureDef);
 
     }
+    render(ctx) {
+        // console.log('dog render');
+        let p=this.dogBody.getPosition();
+        
+        ctx.drawImage(dog_sprite,p.x*SCALE, p.y*SCALE, SCALE*0.1, SCALE*0.1)
+    }
     
 }
 
