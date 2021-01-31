@@ -57,11 +57,20 @@ class Sheep {
 		let anim_velocity=20;
 		this.animation_ticks=this.animation_ticks+1+Math.round(Math.abs(v.y*anim_velocity))+Math.round(Math.abs(v.x*anim_velocity));
 
-		
+		let p=this.body.getPosition();
 		if(Math.random()>0.999) {
 			if(this.frightened) {
 			} else {
-				if(this.isFound()==false) this.move((Math.random()-0.5)*100,(Math.random()-0.5)*100);
+				if(this.isFound()==false) {
+					let random_x=(Math.random()-0.5)*100
+					let random_y=(Math.random()-0.5)*100
+					// console.log(p.x);
+					if(p.x>4) random_x=-20.0;
+					if(p.x<2) random_x=20.0;
+
+					console.log(p.x,random_x);
+					this.move(random_x,random_y);
+				}
 			}
 			
 		}
