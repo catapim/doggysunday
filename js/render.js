@@ -19,6 +19,12 @@ flower_sprite.src="./src/img/white-flower.gif"
 var bush_sprite = new Image();
 bush_sprite.src="./src/img/bush.gif"
 
+// CLOUD
+var cloud_sprite = new Image();
+cloud_sprite.src="./src/img/cloud.gif"
+
+
+
 //Set the frame rate
 var fps = 60;
 //Get the start time
@@ -50,6 +56,7 @@ function drawPolygon(shape) {
 
 };
 let sheep_found=0;
+let cloud_x=0;
 function render() {
     
     // iterate over bodies and fixtures
@@ -176,7 +183,15 @@ function render() {
             dog.render(ctx);
         }
     // }
-    
+    // cloud
+    ctx.drawImage(
+        cloud_sprite,
+        0,
+        0,
+        1024,
+        1024
+
+    )
 
     // request a new frame
     window.requestAnimationFrame(render);
