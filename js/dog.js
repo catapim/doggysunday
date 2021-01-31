@@ -3,6 +3,8 @@ class Dog {
   dogSize = 0.1;
   ticks = 0;
   animation_frame = 0;
+  direction_frame = 0;
+  sprite_frame =0;
   barking=false;
   bark_cooldown=0;
   constructor(x, y) {
@@ -49,6 +51,21 @@ class Dog {
     this.animation_frame = Math.round((this.ticks / 100) % 1);
     if(this.bark_cooldown>0) this.bark_cooldown=this.bark_cooldown-1;
   
+		let v=this.dogBody.getLinearVelocity();
+		if(v.x>0.01) {
+			this.direction_frame=2;
+		} else if(v.y>0.01) {
+			this.direction_frame=4;
+		} else if(v.x<-0.01) {
+			this.direction_frame=6;
+		} else if(v.y<-0.01) {
+			this.direction_frame=0;
+				
+		} else {
+			this.direction_frame=0;
+    }
+    this.sprite_frame = this.direction_frame + this.animation_frame;
+    console.log(this.sprite_frame)
     this.ticks++;
   }
   move(x_axis, y_axis) {
@@ -58,12 +75,11 @@ class Dog {
     // console.log('dog render');
     let p = this.dogBody.getPosition();
     let dogSizeInPixels = SCALE * this.dogSize;
-
-    let anim_sprite = 0 + this.animation_frame;
+    
 
     ctx.drawImage(
       dog_sprite,
-      anim_sprite * SPRITE_SIZE,
+      this.sprite_frame * SPRITE_SIZE,
       0,
       SPRITE_SIZE,
       SPRITE_SIZE,
