@@ -2,7 +2,8 @@
 var sound_samples={
     "bark":new Audio("./src/sound/bark.wav"),
     "sheep":new Audio("./src/sound/sheep.wav"),
-
+    "step":new Audio("./src/sound/step.wav"),
+    "bell":new Audio("./src/sound/bell.wav")
 };
 function playSound(filename,volume) {
     // let audio=new Audio();

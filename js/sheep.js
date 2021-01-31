@@ -61,7 +61,7 @@ class Sheep {
 		if(Math.random()>0.999) {
 			if(this.frightened) {
 			} else {
-				this.move((Math.random()-0.5)*100,(Math.random()-0.5)*100);
+				if(this.isFound()==false) this.move((Math.random()-0.5)*100,(Math.random()-0.5)*100);
 			}
 			
 		}

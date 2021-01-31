@@ -52,7 +52,8 @@ class Dog {
     this.animation_frame = Math.round((this.animation_ticks / 100) % 1);
     if(this.bark_cooldown>0) this.bark_cooldown=this.bark_cooldown-1;
   
-		let v=this.dogBody.getLinearVelocity();
+    let v=this.dogBody.getLinearVelocity();
+    let moving=true;
 		if(v.x>0.02) {
 			this.direction_frame=2;
 		} else if(v.y>0.01) {
@@ -63,10 +64,12 @@ class Dog {
 			this.direction_frame=4;
 				
 		} else {
-			this.direction_frame=4;
+      this.direction_frame=4;
+      moving=false;
     }
     let anim_velocity=10;
     this.animation_ticks=this.animation_ticks+1+Math.round(Math.max(Math.abs(v.y*anim_velocity),Math.abs(v.x*anim_velocity)));
+    if((Math.random()>0.1)&&moving==true&&this.ticks%10==0) playSound("step",0.8);
 
     this.sprite_frame = this.direction_frame + this.animation_frame;
     this.ticks++;
