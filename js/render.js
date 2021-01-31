@@ -171,6 +171,44 @@ setInterval(function(){
             will_bark=false;
             if(!dog.bark_cooldown>0) {
                 dog.bark();
+                for(let i=0;i<herd.length;i++) {
+                    let dp=dog.dogBody.getPosition(); // dog position
+                    let sp=herd[i].body.getPosition(); // sheep position
+                    var d = Math.sqrt( (sp.x-dp.x)*(sp.x-dp.x) + (sp.y-dp.y)*(sp.y-dp.y) ); // distance
+                    if(d<1) {
+                        let force_x=0;
+                        let force_y=0;
+                        // console.log(dp.y,sp.y)
+                        if(sp.x>dp.x) {
+                            // dog is to the left of sheep
+                            force_x=10.0;
+                        } else {
+                            // dog is to the right of sheep
+                            force_x=-10.0;
+                        }
+                        if(sp.y>dp.y) {
+                            // dog is below of sheep
+                            force_y=10.0;
+                        } else  {
+                            // dog is above of sheep
+                            force_y=-10.0;
+                        }
+    
+                        // if(sp.y>dp.y) {
+                        //     // dog is to the left of sheep
+                        //     force_y=10.0;
+                        // }
+                        // if(sp.y<dp.y) {
+                        //     // dog is to the left of sheep
+                        //     force_y=-10.0;
+                        // }
+    
+    
+                        if(force_x!=0||force_y!=0) herd[i].move(force_x,force_y)
+                    }
+                
+
+                }
             } 
         }
     // } else if (typeof(sheep)!="undefined") {
