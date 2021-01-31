@@ -1,10 +1,19 @@
 var dog_sprite = new Image();
 dog_sprite.src="./src/img/dog.gif"
+var bg = new Image();
+bg.src="./src/img/grass0.gif" 
+
 var bodylist=null;
 function render() {
-   
+    
     // iterate over bodies and fixtures
     ctx.clearRect(0, 0, WIDTH, HEIGHT);
+    // BACKGROUND
+    var pattern = ctx.createPattern(bg, 'repeat');
+    ctx.fillStyle = pattern
+    ctx.fillRect(0,0, WIDTH, HEIGHT)
+
+
 
     // // DOG
 
