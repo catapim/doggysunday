@@ -43,9 +43,9 @@ class Sheep {
 			this.direction_frame=2;
 		} else if(v.y>0.01) {
 			this.direction_frame=4;
-		} else if(v.x<0.01) {
+		} else if(v.x<-0.01) {
 			this.direction_frame=6;
-		} else if(v.y<0.01) {
+		} else if(v.y<-0.01) {
 			this.direction_frame=0;
 				
 		} else {
@@ -53,7 +53,7 @@ class Sheep {
 		}
 		this.ticks++
 		let anim_velocity=20;
-		this.animation_ticks=this.animation_ticks+1+Math.round(Math.abs(v.y*anim_velocity))+Math.round(Math.abs(v.y*anim_velocity));
+		this.animation_ticks=this.animation_ticks+1+Math.round(Math.abs(v.y*anim_velocity))+Math.round(Math.abs(v.x*anim_velocity));
 	}
 
 	// move(x_axis, y_axis) {
