@@ -1,8 +1,7 @@
 var dog_sprite = new Image();
 dog_sprite.src="./src/img/dog.gif"
 var bg = new Image();
-bg.src="./src/img/grass-32.gif" 
-var bodylist=null;
+bg.src="./src/img/grass0.gif" 
 //Set the frame rate
 var fps = 60;
 //Get the start time
@@ -19,12 +18,7 @@ function render() {
     ctx.fillRect(0,0, WIDTH, HEIGHT)
     dt=Date.now()-elapsed;
     elapsed=Date.now();
-    world.step(1/60,elapsed/1000);
-    bodylist=world.getBodyList();
-    // dog.dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
-    world.clearForces();
-    dog.dogBody.applyForce(Vec2(x_axis,y_axis),dog.dogBody.getPosition())
-
+    document.getElementById("debug-info").innerHTML=x_axis;
     // // DOG
 
     // let numColumns = 7;
@@ -55,8 +49,8 @@ function render() {
     
     // //Wait for next step in the loop
     // }, 1);
-    if(bodylist) {
-        for (let body = bodylist; body; body = body.getNext()) {
+    // if(bodylist) {
+        for (let body = world.getBodyList(); body; body = body.getNext()) {
             // for (var fixture = body.getFixtureList(); fixture; fixture = fixture.getNext()) {
             //     // draw or update fixture
             // }
@@ -83,20 +77,11 @@ function render() {
                 ctx.fillRect(x, y, SCALE*0.1, SCALE*0.1);
     
     
-            } else {
-               
-                // ctx.fillStyle = "#FF0000";       
-                // ctx.fillRect(p.x-8, p.y-8, 16, 16);
-                // convert world position to screen positions
-                let x=p.x*SCALE
-                let y=p.y*SCALE
-    
-                ctx.drawImage(dog_sprite,x, y, SCALE*0.1, SCALE*0.1)
-            }
+            } 
             
-    
+            dog.render(ctx);
         }
-    }
+    // }
     
 
     // request a new frame
@@ -104,16 +89,19 @@ function render() {
 
 }
 window.requestAnimationFrame(render);
-// setInterval(function(){
-//     // var current = Date.now(),
-//     // elapsed = current - start;
-//     // start = current;
-//     // console.log(elapsed);
+setInterval(function(){
+    // var current = Date.now(),
+    // elapsed = current - start;
+    // start = current;
+    // console.log(elapsed);
     
-//     world.step(1/60,elapsed/1000);
-//     bodylist=world.getBodyList();
-//     // dog.dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
-//     world.clearForces();
-//     dog.dogBody.applyForce(Vec2(x_axis,y_axis),dog.dogBody.getPosition())
+    world.step(1/60);
+    bodylist=world.getBodyList();
+    // dog.dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
+    world.clearForces();
+    if(typeof(dog)!="undefined") {
+        dog.dogBody.applyForce(Vec2(x_axis,y_axis),dog.dogBody.getPosition())
 
-// },1000/60)
+    }
+
+},1000/60)

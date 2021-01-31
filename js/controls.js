@@ -2,9 +2,10 @@ var isKeyPressed = false
 var force=1;
 var x_axis=0.0;
 var y_axis=0.0;
-function keyPressed(key) {
-  //applyForce(force: Vec2, point: Vec2, wake?: boolean): void
-  switch (key) {
+
+document.addEventListener("keydown", function (event) {
+  
+  switch (event.key) {
     case "w":
       // dogBody.setLinearVelocity(Vec2(0.0, -500.0));
       y_axis=force*-1;
@@ -30,17 +31,6 @@ function keyPressed(key) {
     default:
       // console.log(key);
   }
-}
-document.addEventListener("keypress", function (event) {
-  // var eventKey = event.key;
-  // console.log(isKeyPressed)
-  // isKeyPressed = !isKeyPressed
-  // if (isKeyPressed === true) {
-  keyPressed(event.key);
-  // } else {
-  //   dogBody.setLinearVelocity(Vec2(0.0,0.0))
-
-  // }
 
 });
 

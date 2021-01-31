@@ -54,10 +54,33 @@
     }
     window.addEventListener('resize', resize_canvas_to_window_size);
 
-    // when DOM is loaded, resize canvas for first time and set focus
+    // when DOM is loaded, resize canvas for first time and set focus.
+    // Also, create game elements
+    var dog;
     document.addEventListener('DOMContentLoaded', function () {
         resize_canvas_to_window_size();
         canvas.focus();
+        dog=new Dog(1.0, 1.0)
+
+        var sheepNum = 5
+        var i;
+        for (i =0; i < sheepNum; i++) {
+            var xRandom = 1+Math.ceil(Math.random()*sheepNum*1)/10;
+            var yRandom = 1+Math.ceil(Math.random()*sheepNum*3)/10;
+            new Sheep(xRandom, yRandom)
+        }
+        new Fence(0.0,0.0,[
+            [0.0,0.0],
+            [0.1,0.0],
+            [0.1,10],
+            [0.0,10]
+        ]);
+        new Fence(0.0,0.0,[
+            [0.0,0.0],
+            [10,0.0],
+            [10,0.1],
+            [0.0,0.1]
+        ]);
 
     });
 </script>

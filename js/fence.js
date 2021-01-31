@@ -28,17 +28,5 @@ class Fence {
 }
 
 // addFence(position_x:float,position_y:float,vertices:array)
-new Fence(0.0,0.0,[
-    [0.0,0.0],
-    [0.1,0.0],
-    [0.1,10],
-    [0.0,10]
-]);
-new Fence(0.0,0.0,[
-    [0.0,0.0],
-    [10,0.0],
-    [10,0.1],
-    [0.0,0.1]
-]);
 
 
