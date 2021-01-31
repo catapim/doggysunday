@@ -73,6 +73,9 @@ class Sheep {
 	// }
 	move(x_axis, y_axis) {
 		this.body.applyForce(Vec2(x_axis, y_axis), this.body.getPosition());
+		
+
+
 	}
 	frighten() {
 		this.frightened=1000;
