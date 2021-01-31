@@ -201,7 +201,7 @@ function render() {
     // cloud
     for(let i=0;i<cloud_sprites.length;i++) {
         let cloud_x=(i*1000)+(this.ticks*i/10);
-        let cloud_y=i*600;
+        let cloud_y=i*400;
         cloud_x=(cloud_x%4000)-1000;
         cloud_y=cloud_y%4000;
         ctx.drawImage(
@@ -209,7 +209,7 @@ function render() {
             // 0,0,
             (camera_x*SCALE)-cloud_x,
             camera_y*SCALE-cloud_y,
-            2080,
+            4000,
             1000,
             // requestAnimationFrame(0);
         )
