@@ -32,11 +32,11 @@ function keyPressed(key) {
   }
 }
 document.addEventListener("keypress", function (event) {
-  var eventKey = event.key;
+  // var eventKey = event.key;
   // console.log(isKeyPressed)
   // isKeyPressed = !isKeyPressed
   // if (isKeyPressed === true) {
-  keyPressed(eventKey);
+  keyPressed(event.key);
   // } else {
   //   dogBody.setLinearVelocity(Vec2(0.0,0.0))
 
