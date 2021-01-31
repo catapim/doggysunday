@@ -99,10 +99,11 @@ function render() {
   window.requestAnimationFrame(render);
 }
 window.requestAnimationFrame(render);
-setInterval(function () {
-  world.step(1 / 60, 1, 1);
-  bodylist = world.getBodyList();
-  // dog.dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
-  this.world.clearForces();
-  dog.dogBody.applyForce(Vec2(x_axis, y_axis), dog.dogBody.getPosition());
-}, 20);
+setInterval(function(){
+    world.step(1/60,1,1);
+    bodylist=world.getBodyList();
+    // dog.dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
+    this.world.clearForces();
+    dog.dogBody.applyForce(Vec2(x_axis,y_axis),dog.dogBody.getPosition())
+
+},1000/60)

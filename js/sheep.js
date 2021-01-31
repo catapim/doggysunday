@@ -8,7 +8,7 @@ class Sheep {
             linearDamping: 1.0,
             angularDamping: 0.01,
             allowSleep:true,
-            bullet: true
+            bullet: false
         };
 
         // Call the body factory which allocates memory for the ground body
