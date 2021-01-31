@@ -15,8 +15,6 @@
         <h2>help them to get into the fence</h2>
         <h3>SPACE = BARK</h3>
         <h3>WASD = MOVE</h3>
-
-
     </div>
     <canvas width="640" height="480" id="canvas" tabindex="1">
 
@@ -76,9 +74,23 @@
         // top fence 2
         new Fence([
             [1.5,0.0],
-            [2.5,0.0],
-            [2.5,0.1],
+            [4.5,0.0],
+            [4.5,0.1],
             [1.5,0.1]
+        ]);
+        // right fence
+        new Fence([
+            [4.4,0.0],
+            [4.4,10],
+            [4.5,0],
+            [4.5, 10]
+        ]);
+        // bottom fence 2
+        new Fence([
+            [0.0,10.0],
+            [4.5, 10],
+            [4.5,10.1],
+            [0.0,10.1]
         ]);
     });
 </script>
