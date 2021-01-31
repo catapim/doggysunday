@@ -41,10 +41,9 @@ class Sheep {
 	// }
 
 	render(ctx) {
-
+        // console.log("render")
 		let p = this.body.getPosition();
 		let sheepSizeInPixels = SCALE * this.sheepSize;
-	
 		let anim_sprite = 0 + this.animation_frame;
 
 		ctx.drawImage(
@@ -53,8 +52,8 @@ class Sheep {
 			0,
 			SPRITE_SIZE,
 			SPRITE_SIZE,
-			p.x+1 * SCALE,
-			p.y+1 * SCALE,
+			p.x * SCALE,
+			p.y * SCALE,
 			sheepSizeInPixels,
 			sheepSizeInPixels
 
