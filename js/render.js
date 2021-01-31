@@ -90,6 +90,6 @@ setInterval(function(){
     bodylist=world.getBodyList();
     // dog.dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
     this.world.clearForces();
-        dog.dogBody.applyForce(Vec2(x_axis,y_axis),dog.dogBody.getPosition())
+    dog.dogBody.applyForce(Vec2(x_axis,y_axis),dog.dogBody.getPosition())
 
 },20)
