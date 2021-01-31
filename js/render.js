@@ -1,7 +1,7 @@
 var dog_sprite = new Image();
 dog_sprite.src="./src/img/dog.gif"
 var bg = new Image();
-bg.src="./src/img/grass0.gif" 
+bg.src="./src/img/grass-32.gif" 
 //Set the frame rate
 var fps = 60;
 //Get the start time
