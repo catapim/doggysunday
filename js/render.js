@@ -225,7 +225,10 @@ window.requestAnimationFrame(render);
 
 
 // randomSheepSound();
+function render_score() {
+    document.getElementById("score").innerHTML="SHEEP FOUND "+sheep_found+" / "+TOTAL_SHEEP;
 
+}
 setInterval(function(){
     // var current = Date.now(),
     // elapsed = current - start;
@@ -247,8 +250,7 @@ setInterval(function(){
     }
     if(sheep_count!=sheep_found) {
         sheep_found=sheep_count;
-        document.getElementById("score").innerHTML="SHEEP FOUND "+sheep_found+" / "+TOTAL_SHEEP;
-
+        render_score();
     }
 
     // dog
@@ -327,3 +329,4 @@ setInterval(function(){
 //     console.log('hide')
 //     document.getElementById("how-to").style.display="none"
 // }, 10000)
+render_score();
