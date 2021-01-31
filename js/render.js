@@ -4,10 +4,11 @@ var bg = new Image();
 bg.src="./src/img/grass0.gif" 
 var bodylist=null;
 //Set the frame rate
-var fps = 60,
+var fps = 60;
 //Get the start time
-start = Date.now()
-
+var start = Date.now()
+var last_frame=Date.now();
+var elapsed;
 function render() {
     
     // iterate over bodies and fixtures
@@ -16,8 +17,9 @@ function render() {
     var pattern = ctx.createPattern(bg, 'repeat');
     ctx.fillStyle = pattern
     ctx.fillRect(0,0, WIDTH, HEIGHT)
-
-
+    dt=Date.now()-elapsed;
+    console.log(dt);
+    elapsed=Date.now();
 
     // // DOG
 
@@ -61,7 +63,7 @@ function render() {
                 ctx.fillStyle = "#000000";
                 let shape=body.getFixtureList().getShape();
     
-    
+                ctx.beginPath(); 
                 ctx.moveTo(p.x, p.y);
                 let v=[shape.getVertex(0),shape.getVertex(1),shape.getVertex(2),shape.getVertex(3)]
                 ctx.lineTo(p.x+v[0].x*SCALE, p.y+v[0].y*SCALE);
@@ -99,15 +101,15 @@ function render() {
 }
 window.requestAnimationFrame(render);
 setInterval(function(){
-    var current = Date.now(),
-    elapsed = current - start;
-    start = current;
+    // var current = Date.now(),
+    // elapsed = current - start;
+    // start = current;
     // console.log(elapsed);
     
     world.step(1/60,elapsed/1000);
     bodylist=world.getBodyList();
     // dog.dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
-    this.world.clearForces();
+    world.clearForces();
     dog.dogBody.applyForce(Vec2(x_axis,y_axis),dog.dogBody.getPosition())
 
 },1000/60)
