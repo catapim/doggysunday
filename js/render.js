@@ -70,54 +70,7 @@ function render() {
     ctx.fillRect(0,0, WIDTH, HEIGHT)
     dt=Date.now()-elapsed;
     elapsed=Date.now();
-    // document.getElementById("debug-info").innerHTML=camera_x;
-    // score
-
-    // document.getElementById("how-to");
-    // document.getElementById("cloud").innerHTML="<img src=\"./src/img/cloud.gif\">";
-
-    // setTimeout()
-
-
-    // // DOG
-
-    // let numColumns = 7;
-    // let numRows = 1;
-    // // Define the size of a frame
-    // let frameWidth = dog_sprite.width / numColumns;
-    // let frameHeight = dog_sprite.height / numRows;
-
-    // let currentFrame = 0
-
-    // setInterval(function()
-    // {
-    //     // Pick a new frame
-    //     currentFrame++;    
-    //     // Make the frames loop
-    //     let maxFrame = numColumns * numRows - 1;
-    //     if (currentFrame > maxFrame){
-    //         currentFrame = 0;
-    //     }
     
-    //     // Update rows and columns
-    //     let column = currentFrame % numColumns;
-    //     let row = Math.floor(currentFrame / numColumns);
-    
-    //     // Clear and draw
-    //     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    //     ctx.drawImage(dog_sprite, column * frameWidth, row * frameHeight, frameWidth, frameHeight, 10, 30, frameWidth, frameHeight);
-    
-    // //Wait for next step in the loop
-    // }, 1);
-    // if(bodylist) {
-
-    // draw flowers
-    // ctx.drawImage(
-    //     flower_sprite,
-    //     0,
-    //     0
-
-    // )
     for(let i=0;i<flowers.length;i++) {
         // console.log(flower);
         // console.log(flowerd[0])
@@ -251,6 +204,7 @@ setInterval(function(){
     if(sheep_count!=sheep_found) {
         sheep_found=sheep_count;
         render_score();
+        playSound("bell",1.0);
     }
 
     // dog
