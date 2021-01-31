@@ -18,11 +18,6 @@ function render() {
     ctx.fillRect(0,0, WIDTH, HEIGHT)
     dt=Date.now()-elapsed;
     elapsed=Date.now();
-    // world.step(1/60,elapsed/1000);
-    // bodylist=world.getBodyList();
-    // dog.dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
-    // world.clearForces();
-    // dog.dogBody.applyForce(Vec2(x_axis,y_axis),dog.dogBody.getPosition())
     document.getElementById("debug-info").innerHTML=x_axis;
     // // DOG
 
