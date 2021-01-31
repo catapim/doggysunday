@@ -184,6 +184,13 @@ setInterval(function(){
     bodylist=world.getBodyList();
     // dog.dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
     world.clearForces();
+    // loop through sheep
+    sheep_found=0;
+    for(let i=0;i<herd.length;i++) {
+        herd[i].tick();
+        if(herd[i].isFound()) sheep_found+=1;
+    }
+    // dog
     if(typeof(dog)!="undefined") {
         dog.move(x_axis,y_axis);
         dog.tick();
@@ -195,23 +202,24 @@ setInterval(function(){
                     let dp=dog.dogBody.getPosition(); // dog position
                     let sp=herd[i].body.getPosition(); // sheep position
                     var d = Math.sqrt( (sp.x-dp.x)*(sp.x-dp.x) + (sp.y-dp.y)*(sp.y-dp.y) ); // distance
-                    if(d<1) {
+                    if(d<1 && !herd[i].isFound()) {
                         let force_x=0;
                         let force_y=0;
                         // console.log(dp.y,sp.y)
+                        let sheep_force=20.0;
                         if(sp.x>dp.x) {
                             // dog is to the left of sheep
-                            force_x=10.0;
+                            force_x=sheep_force;
                         } else {
                             // dog is to the right of sheep
-                            force_x=-10.0;
+                            force_x=-sheep_force;
                         }
                         if(sp.y>dp.y) {
                             // dog is below of sheep
-                            force_y=10.0;
+                            force_y=sheep_force;
                         } else  {
                             // dog is above of sheep
-                            force_y=-10.0;
+                            force_y=-sheep_force;
                         }
     
                         // if(sp.y>dp.y) {

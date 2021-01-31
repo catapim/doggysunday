@@ -2,8 +2,9 @@ class Sheep {
 	
 	sheepSize = 0.1;
 	ticks=0;
+	animation_ticks=0;
 	animation_frame=0;
-	
+	direction_frame=0;
 	constructor(x,y) {
         // Define the ground body.
         let sheepBodyDef = {
@@ -30,9 +31,29 @@ class Sheep {
 		this.body.createFixture(box, 0.0);
 		
 	}
+	isFound() {
+		if(this.body.getPosition().y<0) return true;
+		return false;
+	}
 	tick() {
-		this.animation_frame=Math.round((this.ticks/100)%1);
+		this.animation_frame = Math.round((this.animation_ticks / 100) % 1);
+
+		let v=this.body.getLinearVelocity();
+		if(v.x>0.01) {
+			this.direction_frame=2;
+		} else if(v.y>0.01) {
+			this.direction_frame=4;
+		} else if(v.x<-0.01) {
+			this.direction_frame=6;
+		} else if(v.y<-0.01) {
+			this.direction_frame=0;
+				
+		} else {
+			this.direction_frame=0;
+		}
 		this.ticks++
+		let anim_velocity=20;
+		this.animation_ticks=this.animation_ticks+1+Math.round(Math.abs(v.y*anim_velocity))+Math.round(Math.abs(v.x*anim_velocity));
 	}
 
 	// move(x_axis, y_axis) {
@@ -46,7 +67,7 @@ class Sheep {
         // console.log("render")
 		let p = this.body.getPosition();
 		let sheepSizeInPixels = SCALE * this.sheepSize;
-		let anim_sprite = 0 + this.animation_frame;
+		let anim_sprite = this.direction_frame + this.animation_frame;
 
 		ctx.drawImage(
 			sheep_sprite,
