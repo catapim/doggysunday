@@ -53,11 +53,11 @@ class Dog {
     if(this.bark_cooldown>0) this.bark_cooldown=this.bark_cooldown-1;
   
 		let v=this.dogBody.getLinearVelocity();
-		if(v.x>0.01) {
+		if(v.x>0.02) {
 			this.direction_frame=2;
 		} else if(v.y>0.01) {
 			this.direction_frame=0;
-		} else if(v.x<-0.01) {
+		} else if(v.x<-0.02) {
 			this.direction_frame=6;
 		} else if(v.y<-0.01) {
 			this.direction_frame=4;
