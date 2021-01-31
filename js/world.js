@@ -48,6 +48,7 @@ for(i=0;i<1000;i++) {
 
     let y=Math.round(Math.random()*10000);
     flowers.push([x,y])
+    bush.push([x*0.3,y*0.5])
 }
 
 // // This is our little game loop.

@@ -10,6 +10,9 @@ sheep_sprite.src="./src/img/sheep.gif"
 // FLOWER
 var flower_sprite = new Image();
 flower_sprite.src="./src/img/white-flower.gif"
+// BUSH
+var bush_sprite = new Image();
+bush_sprite.src="./src/img/bush.gif"
 
 //Set the frame rate
 var fps = 60;
@@ -107,6 +110,22 @@ function render() {
     
         )
     }
+
+    for(let i=0;i<bush.length;i++) {
+        // console.log(flower);
+        // console.log(flowerd[0])
+        ctx.drawImage(
+            bush_sprite,
+            bush[i][0],
+            bush[i][1],
+            32,
+            32
+    
+        )
+    }
+
+    
+
         for (let body = world.getBodyList(); body; body = body.getNext()) {
             for (var fixture = body.getFixtureList(); fixture; fixture = fixture.getNext()) {
                 // draw or update fixture
