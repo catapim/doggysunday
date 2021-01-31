@@ -4,10 +4,14 @@ var sound_samples={
     "sheep":new Audio("./src/sound/sheep.wav"),
 
 };
-function playSound(filename) {
-    let audio=new Audio();
-    audio.src=sound_samples[filename].src;
-    audio.play();
+function playSound(filename,volume) {
+    // let audio=new Audio();
+    // audio.src=sound_samples[filename].src;
+    // audio.volume=volume;
+    // audio.play();
+    sound_samples[filename].volume=volume;
+    sound_samples[filename].currentTime=0;
+    sound_samples[filename].play();
 }
 let music_looping=false;
 var song_audio = new Audio("./src/sound/doggy_sunday.wav")

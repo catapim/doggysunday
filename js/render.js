@@ -288,9 +288,11 @@ setInterval(function(){
                         if(force_x!=0||force_y!=0) {
                             herd[i].move(force_x,force_y)
                             herd[i].frighten();
-                            if(Math.random()>0.8) {
+                            if(Math.random()>0.2) {
                                 setTimeout(function(){
-                                    playSound("sheep");
+                                    // playSound("sheep",Math.min(1.0,Math.max(0.0,2.0-d)));
+
+                                    playSound("sheep",0.4);
                         
                                 },Math.random()*300)
                             }
