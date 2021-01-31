@@ -3,6 +3,8 @@ class Dog {
   dogSize = 0.1;
   ticks = 0;
   animation_frame = 0;
+  barking=false;
+  bark_cooldown=0;
   constructor(x, y) {
     // Define the ground body.
     let dogBodyDef = {
@@ -37,9 +39,15 @@ class Dog {
     // body.createFixture(box, 0.0);
     this.dogBody.createFixture(dogFixtureDef);
   }
-  
+  bark() {
+    this.barking=true;
+    this.bark_cooldown=100;
+    console.log("GUAU");
+  }
   tick() {
     this.animation_frame = Math.round((this.ticks / 100) % 1);
+    if(this.bark_cooldown>0) this.bark_cooldown=this.bark_cooldown-1;
+  
     this.ticks++;
   }
   move(x_axis, y_axis) {

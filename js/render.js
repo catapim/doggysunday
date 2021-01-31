@@ -167,6 +167,12 @@ setInterval(function(){
     if(typeof(dog)!="undefined") {
         dog.move(x_axis,y_axis);
         dog.tick();
+        if(will_bark) {
+            will_bark=false;
+            if(!dog.bark_cooldown>0) {
+                dog.bark();
+            } 
+        }
     // } else if (typeof(sheep)!="undefined") {
         // is);
     }

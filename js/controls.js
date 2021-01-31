@@ -2,7 +2,7 @@ var isKeyPressed = false;
 var force = 0.1;
 var x_axis = 0.0;
 var y_axis = 0.0;
-var is_barking = false;
+var will_bark = false;
 document.addEventListener("keydown", function (event) {
   switch (event.key) {
     case "w":
@@ -47,18 +47,8 @@ document.addEventListener("keyup", function (event) {
 var timeout = 3;
 document.addEventListener("keyup", function (event) {
   if (event.key === " ") {
-    if (is_barking === false) {
-      is_barking = true;
-      console.log("barking!");
-    }
-  }
-  if (is_barking === true) {
-    console.log("if bargin tr..");
-    setTimeout(function () {
-      is_barking = false;
-      console.log("barking false...");
-    }, 3000);
-  } else {
-    console.log("br false");
-  }
+
+      will_bark = true;
+    
+  } 
 });
