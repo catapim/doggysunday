@@ -2,6 +2,7 @@ const WIDTH=640;
 const HEIGHT=480;
 const SCALE=256;
 const SPRITE_SIZE=16;
+const TOTAL_SHEEP=10;
 var Vec2 = planck.Vec2;
 
 // Define the gravity vector.
@@ -39,7 +40,13 @@ var world = planck.World({allowSleep:true,gravity:gravity,positionIterations:1})
 var timeStep = 1.0 / 30.0;
 var velocityIterations = 1;
 var positionIterations = 1;
+let flowers=[];
+for(i=0;i<1000;i++) {
+    let x=Math.round(Math.random()*10000);
 
+    let y=Math.round(Math.random()*10000);
+    flowers.push([x,y])
+}
 
 // // This is our little game loop.
 // for (var i = 0; i < 60; ++i) {

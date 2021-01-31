@@ -1,0 +1,36 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height:100%;
+    font-family: 'BIOS';
+}
+canvas {
+    top:0;
+    left:0;
+    right: 0;
+    bottom:0;
+    position: fixed;
+    z-index:0;
+}
+#debug-info {
+    bottom:0;
+    left:0;
+    right: 0;
+    position: fixed;
+    z-index: 2;
+}
+#score {
+    top:0;
+    left:0;
+    position: fixed;
+    z-index: 2;
+    background-color: green;
+    color: yellow;
+
+}
+@font-face {
+    font-family: 'BIOS';
+    src: url('../fonts/Web437_IBM_BIOS.woff') format('woff');
+        
+  }

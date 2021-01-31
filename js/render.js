@@ -7,12 +7,41 @@ bg.src="./src/img/grass-32.gif"
 // SHEEP
 var sheep_sprite = new Image();
 sheep_sprite.src="./src/img/sheep.gif"
+// FLOWER
+var flower_sprite = new Image();
+flower_sprite.src="./src/img/white-flower.gif"
+
 //Set the frame rate
 var fps = 60;
 //Get the start time
 var start = Date.now()
 var last_frame=Date.now();
 var elapsed;
+function drawPolygon(shape) {
+    var vertices = shape.m_vertices;
+    ctx.fillStyle = "#000000";
+    ctx.beginPath(); 
+
+    for (var i = 0; i < vertices.length; i++) {
+        var v = vertices[i];
+        let x=(v.x*SCALE)+16;
+        let y=(v.y*SCALE)+16;
+        
+        if (i == 0) {
+            ctx.moveTo(x, y);
+        } else {
+            ctx.lineTo(x,y);
+
+        }
+
+
+    }
+    ctx.fill();
+    ctx.closePath();
+      
+
+};
+let sheep_found=0;
 function render() {
     
     // iterate over bodies and fixtures
@@ -24,6 +53,9 @@ function render() {
     dt=Date.now()-elapsed;
     elapsed=Date.now();
     document.getElementById("debug-info").innerHTML=x_axis;
+    // score
+    document.getElementById("score").innerHTML="SHEEP FOUND "+sheep_found+" / "+TOTAL_SHEEP;
+
     // // DOG
 
     // let numColumns = 7;
@@ -55,26 +87,50 @@ function render() {
     // //Wait for next step in the loop
     // }, 1);
     // if(bodylist) {
+
+    // draw flowers
+    // ctx.drawImage(
+    //     flower_sprite,
+    //     0,
+    //     0
+
+    // )
+    for(let i=0;i<flowers.length;i++) {
+        // console.log(flower);
+        // console.log(flowerd[0])
+        ctx.drawImage(
+            flower_sprite,
+            flowers[i][0],
+            flowers[i][1],
+            32,
+            32
+    
+        )
+    }
         for (let body = world.getBodyList(); body; body = body.getNext()) {
-            // for (var fixture = body.getFixtureList(); fixture; fixture = fixture.getNext()) {
-            //     // draw or update fixture
-            // }
+            for (var fixture = body.getFixtureList(); fixture; fixture = fixture.getNext()) {
+                // draw or update fixture
+                if(body.isStatic()) {
+                    drawPolygon(fixture.getShape())
+
+                }
+            }
          
             let p = body.getPosition();
             let userData=body.getUserData();
             if (userData == "fence") {
-                ctx.fillStyle = "#000000";
-                let shape=body.getFixtureList().getShape();
+                // ctx.fillStyle = "#000000";
+                // let shape=body.getFixtureList().getShape();
     
-                ctx.beginPath(); 
-                ctx.moveTo(p.x, p.y);
-                let v=[shape.getVertex(0),shape.getVertex(1),shape.getVertex(2),shape.getVertex(3)]
-                ctx.lineTo(p.x+v[0].x*SCALE, p.y+v[0].y*SCALE);
-                ctx.lineTo(p.x+v[1].x*SCALE, p.y+v[1].y*SCALE);
-                ctx.lineTo(p.x+v[2].x*SCALE, p.y+v[2].y*SCALE);
-                ctx.lineTo(p.x+v[3].x*SCALE, p.y+v[3].y*SCALE);
+                // ctx.beginPath(); 
+                // ctx.moveTo(p.x, p.y);
+                // let v=[shape.getVertex(0),shape.getVertex(1),shape.getVertex(2),shape.getVertex(3)]
+                // ctx.lineTo(p.x+v[0].x*SCALE, p.y+v[0].y*SCALE);
+                // ctx.lineTo(p.x+v[1].x*SCALE, p.y+v[1].y*SCALE);
+                // ctx.lineTo(p.x+v[2].x*SCALE, p.y+v[2].y*SCALE);
+                // ctx.lineTo(p.x+v[3].x*SCALE, p.y+v[3].y*SCALE);
     
-                ctx.stroke();
+                // ctx.stroke();
             } else if (userData == "sheep") {
                 // sheep.render(ctx)
                 // ctx.fillStyle = "#ffcccc";
