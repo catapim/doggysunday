@@ -70,7 +70,6 @@ class Dog {
     this.animation_ticks=this.animation_ticks+1+Math.round(Math.abs(v.y*anim_velocity))+Math.round(Math.abs(v.x*anim_velocity));
 
     this.sprite_frame = this.direction_frame + this.animation_frame;
-    console.log(this.sprite_frame)
     this.ticks++;
   }
   move(x_axis, y_axis) {
