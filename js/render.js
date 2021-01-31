@@ -1,7 +1,12 @@
+// DOG
 var dog_sprite = new Image();
 dog_sprite.src="./src/img/dog.gif"
+// BG
 var bg = new Image();
 bg.src="./src/img/grass-32.gif" 
+// SHEEP
+var sheep_sprite = new Image();
+sheep_sprite.src="./src/img/sheep.gif"
 //Set the frame rate
 var fps = 60;
 //Get the start time
@@ -71,10 +76,12 @@ function render() {
     
                 ctx.stroke();
             } else if (userData == "sheep") {
-                ctx.fillStyle = "#00FF00";
+                // sheep.render(ctx)
+                ctx.fillStyle = "#ffcccc";
                 let x=p.x*SCALE
                 let y=p.y*SCALE
                 ctx.fillRect(x, y, SCALE*0.1, SCALE*0.1);
+                sheep.render(ctx)
     
     
             } 
@@ -102,6 +109,8 @@ setInterval(function(){
     if(typeof(dog)!="undefined") {
         dog.move(x_axis,y_axis);
         dog.tick();
+    // } else if (typeof(sheep)!="undefined") {
+        // is);
     }
     
 
