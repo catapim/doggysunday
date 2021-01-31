@@ -77,15 +77,17 @@ function render() {
                 ctx.stroke();
             } else if (userData == "sheep") {
                 // sheep.render(ctx)
-                ctx.fillStyle = "#ffcccc";
-                let x=p.x*SCALE
-                let y=p.y*SCALE
-                ctx.fillRect(x, y, SCALE*0.1, SCALE*0.1);
-                sheep.render(ctx)
+                // ctx.fillStyle = "#ffcccc";
+                // let x=p.x*SCALE
+                // let y=p.y*SCALE
+                // ctx.fillRect(x, y, SCALE*0.1, SCALE*0.1);
+                // sheep.render(ctx)
     
     
             } 
-            
+            for(sheep of herd) {
+                sheep.render(ctx);
+            }
             dog.render(ctx);
         }
     // }
