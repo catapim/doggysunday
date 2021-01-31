@@ -1,7 +1,8 @@
 // Camera
 var camera_x=0.0;
 var camera_y=0.0;
-
+var camera_center_x=(document.body.clientWidth/2)/SCALE;
+var camera_center_y=(document.body.clientHeight/2)/SCALE;
 // DOG
 var dog_sprite = new Image();
 dog_sprite.src="./src/img/dog.gif"
@@ -202,8 +203,8 @@ setInterval(function(){
         dog.tick();
         let dp=dog.dogBody.getPosition(); // dog position
         // update camera
-        camera_x=dp.x+1.0;
-        camera_y=dp.y+1.0;
+        camera_x=dp.x+camera_center_x;
+        camera_y=dp.y+camera_center_y;
         if(will_bark) {
             will_bark=false;
             if(!dog.bark_cooldown>0) {
