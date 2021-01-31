@@ -5,6 +5,7 @@ class Sheep {
 	animation_ticks=0;
 	animation_frame=0;
 	direction_frame=0;
+	frightened=0;
 	constructor(x,y) {
         // Define the ground body.
         let sheepBodyDef = {
@@ -52,8 +53,18 @@ class Sheep {
 			this.direction_frame=0;
 		}
 		this.ticks++
+		if(this.frightened>0) this.frightened-=1;
 		let anim_velocity=20;
 		this.animation_ticks=this.animation_ticks+1+Math.round(Math.abs(v.y*anim_velocity))+Math.round(Math.abs(v.x*anim_velocity));
+
+		
+		if(Math.random()>0.999) {
+			if(this.frightened) {
+			} else {
+				this.move((Math.random()-0.5)*100,(Math.random()-0.5)*100);
+			}
+			
+		}
 	}
 
 	// move(x_axis, y_axis) {
@@ -62,7 +73,10 @@ class Sheep {
 	// }
 	move(x_axis, y_axis) {
 		this.body.applyForce(Vec2(x_axis, y_axis), this.body.getPosition());
-	  }
+	}
+	frighten() {
+		this.frightened=1000;
+	}
 	render(ctx) {
         // console.log("render")
 		let p = this.body.getPosition();

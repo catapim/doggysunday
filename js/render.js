@@ -21,8 +21,11 @@ bush_sprite.src="./src/img/bush.gif"
 
 // CLOUD
 var cloud_sprite = new Image();
-cloud_sprite.src="./src/img/cloud.gif"
+cloud_sprite.src="./src/img/cloud.png"
 
+// HOUSE
+var house_sprite = new Image();
+house_sprite.src="./src/img/house.gif"
 
 
 //Set the frame rate
@@ -56,7 +59,8 @@ function drawPolygon(shape) {
 
 };
 let sheep_found=0;
-let cloud_x=0;
+let cloud_x=100;
+let cloud_y=1000;
 function render() {
     
     // iterate over bodies and fixtures
@@ -183,11 +187,22 @@ function render() {
             dog.render(ctx);
         }
     // }
+    // house
+    let house_x=200;
+    let house_y=-100;
+    ctx.drawImage(
+        house_sprite,
+        (camera_x*SCALE)-house_x,
+        camera_y*SCALE-house_y,
+        128,
+        128
+
+    )
     // cloud
     ctx.drawImage(
         cloud_sprite,
-        0,
-        0,
+        (camera_x*SCALE)-cloud_x,
+        camera_y*SCALE-cloud_y,
         1024,
         1024
 
@@ -204,7 +219,7 @@ setInterval(function(){
     // elapsed = current - start;
     // start = current;
     // console.log(elapsed);
-    
+    cloud_x=cloud_x+0.1;
     world.step(1/60);
     bodylist=world.getBodyList();
     // dog.dogBody.setLinearVelocity(Vec2(x_axis, y_axis));
@@ -249,7 +264,7 @@ setInterval(function(){
                         // }
                         force_x=Math.cos(angle)*sheep_force;
                         force_y=Math.sin(angle)*sheep_force;
-
+                        force_x=force_x+Math.random()-0.5;
     
                         // if(sp.y>dp.y) {
                         //     // dog is to the left of sheep
@@ -261,7 +276,10 @@ setInterval(function(){
                         // }
     
     
-                        if(force_x!=0||force_y!=0) herd[i].move(force_x,force_y)
+                        if(force_x!=0||force_y!=0) {
+                            herd[i].move(force_x,force_y)
+                            herd[i].frighten();
+                        }
                     }
                 
 
