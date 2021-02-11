@@ -6,20 +6,10 @@ var camera_center_y=(document.body.clientHeight/2)/SCALE;
 // DOG
 var dog_sprite = new Image();
 dog_sprite.src="./src/img/dog.gif"
-// BG
-var bg = new Image();
-bg.src="./src/img/grass-32.gif" 
+
 // SHEEP
 var sheep_sprite = new Image();
 sheep_sprite.src="./src/img/sheep.gif"
-// FLOWER
-var flower_sprite = new Image();
-flower_sprite.src="./src/img/white-flower.gif"
-// BUSH
-var bush_sprite = new Image();
-bush_sprite.src="./src/img/bush.gif"
-
-
 
 // HOUSE
 var house_sprite = new Image();
@@ -44,9 +34,9 @@ function drawPolygon(shape) {
         let y=((camera_y-v.y)*SCALE)+16;
         
         if (i == 0) {
-            ctx.moveTo(x, y);
+            ctx.moveTo(Math.round(x), Math.round(y));
         } else {
-            ctx.lineTo(x,y);
+            ctx.lineTo(Math.round(x),Math.round(y));
 
         }
 
@@ -62,112 +52,70 @@ let cloud_x=100;
 let cloud_y=1000;
 function render() {
     
-    // iterate over bodies and fixtures
-    // ctx.clearRect(0, 0, WIDTH, HEIGHT);
-    // BACKGROUND
-    var pattern = ctx.createPattern(bg, 'repeat');
-    ctx.fillStyle = pattern
-    ctx.fillRect(0,0, WIDTH, HEIGHT)
+    // Iterate over bodies and fixtures
+    // Background
+    ctx.drawImage(canvas.grassCanvas, Math.round((camera_x*SCALE)-WIDTH/2), Math.round((camera_y*SCALE)-HEIGHT+500));
     dt=Date.now()-elapsed;
     elapsed=Date.now();
-    
-    for(let i=0;i<flowers.length;i++) {
-        // console.log(flower);
-        // console.log(flowerd[0])
-        ctx.drawImage(
-            flower_sprite,
-            (camera_x*SCALE)-flowers[i][0],
-            (camera_y*SCALE)-flowers[i][1],
-            32,
-            32
-    
-        )
-    }
 
-    for(let i=0;i<bush.length;i++) {
-        // console.log(flower);
-        // console.log(flowerd[0])
-        ctx.drawImage(
-            bush_sprite,
-            (camera_x*SCALE)-bush[i][0],
-            (camera_y*SCALE)-bush[i][1],
-            32,
-            32
-    
-        )
-        // requestAnimationFrame(0)
-    }
 
-    
 
-        for (let body = world.getBodyList(); body; body = body.getNext()) {
-            for (var fixture = body.getFixtureList(); fixture; fixture = fixture.getNext()) {
-                // draw or update fixture
-                if(body.isStatic()) {
-                    drawPolygon(fixture.getShape())
 
-                }
+    for (let body = world.getBodyList(); body; body = body.getNext()) {
+        for (var fixture = body.getFixtureList(); fixture; fixture = fixture.getNext()) {
+            // draw or update fixture
+            if(body.isStatic()) {
+                drawPolygon(fixture.getShape())
+
             }
-         
-            let p = body.getPosition();
-            let userData=body.getUserData();
-            if (userData == "fence") {
-                // ctx.fillStyle = "#000000";
-                // let shape=body.getFixtureList().getShape();
-    
-                // ctx.beginPath(); 
-                // ctx.moveTo(p.x, p.y);
-                // let v=[shape.getVertex(0),shape.getVertex(1),shape.getVertex(2),shape.getVertex(3)]
-                // ctx.lineTo(p.x+v[0].x*SCALE, p.y+v[0].y*SCALE);
-                // ctx.lineTo(p.x+v[1].x*SCALE, p.y+v[1].y*SCALE);
-                // ctx.lineTo(p.x+v[2].x*SCALE, p.y+v[2].y*SCALE);
-                // ctx.lineTo(p.x+v[3].x*SCALE, p.y+v[3].y*SCALE);
-    
-                // ctx.stroke();
-            } else if (userData == "sheep") {
-                // sheep.render(ctx)
-                // ctx.fillStyle = "#ffcccc";
-                // let x=p.x*SCALE
-                // let y=p.y*SCALE
-                // ctx.fillRect(x, y, SCALE*0.1, SCALE*0.1);
-                // sheep.render(ctx)
-    
-    
-            } 
-            for(sheep of herd) {
-                sheep.render(ctx);
-            }
-            dog.render(ctx);
         }
+        
+        // let p = body.getPosition();
+        // let userData=body.getUserData();
+        // if (userData == "fence") {
+        //     // ctx.fillStyle = "#000000";
+        //     // let shape=body.getFixtureList().getShape();
+
+        //     // ctx.beginPath(); 
+        //     // ctx.moveTo(p.x, p.y);
+        //     // let v=[shape.getVertex(0),shape.getVertex(1),shape.getVertex(2),shape.getVertex(3)]
+        //     // ctx.lineTo(p.x+v[0].x*SCALE, p.y+v[0].y*SCALE);
+        //     // ctx.lineTo(p.x+v[1].x*SCALE, p.y+v[1].y*SCALE);
+        //     // ctx.lineTo(p.x+v[2].x*SCALE, p.y+v[2].y*SCALE);
+        //     // ctx.lineTo(p.x+v[3].x*SCALE, p.y+v[3].y*SCALE);
+
+        //     // ctx.stroke();
+        // } else if (userData == "sheep") {
+        //     // sheep.render(ctx)
+        //     // ctx.fillStyle = "#ffcccc";
+        //     // let x=p.x*SCALE
+        //     // let y=p.y*SCALE
+        //     // ctx.fillRect(x, y, SCALE*0.1, SCALE*0.1);
+        //     // sheep.render(ctx)
+
+
+        // } 
+        for(sheep of herd) {
+            sheep.render(ctx);
+        }
+        dog.render(ctx);
+    }
     // }
     // house
     let house_x=200;
     let house_y=-100;
     ctx.drawImage(
         house_sprite,
-        (camera_x*SCALE)-house_x,
-        camera_y*SCALE-house_y,
+        Math.round((camera_x*SCALE)-house_x),
+        Math.round(camera_y*SCALE-house_y),
         128,
         128
 
     )
-    // cloud
-    for(let i=0;i<cloud_sprites.length;i++) {
-        let cloud_x=(i*1000)+(this.ticks*i/10);
-        let cloud_y=i*400;
-        cloud_x=(cloud_x%4000)-1000;
-        cloud_y=cloud_y%4000;
-        ctx.drawImage(
-            cloud_sprites[i],
-            // 0,0,
-            (camera_x*SCALE)-cloud_x,
-            camera_y*SCALE-cloud_y,
-            4000,
-            1000,
-            // requestAnimationFrame(0);
-        )
-    }
+    let clouds_x=(this.ticks*i/5000);
+    if(clouds_x>10000) clouds_x=-10000
 
+    ctx.drawImage(canvas.cloudCanvas, Math.round((camera_x*SCALE)-clouds_x-WIDTH/2), Math.round((camera_y*SCALE)-HEIGHT+500));
     
 
     // request a new frame

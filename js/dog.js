@@ -19,7 +19,7 @@ class Dog {
       angularDamping: 0.01,
       allowSleep: false,
     };
-
+    this.dogSizeInPixels=Math.round(SCALE * this.dogSize)
     // Call the body factory which allocates memory for the ground body
     // from a pool and creates the ground box shape (also from a pool).
     // The body is also added to the world.
@@ -80,7 +80,6 @@ class Dog {
   render(ctx) {
     // console.log('dog render');
     let p = this.dogBody.getPosition();
-    let dogSizeInPixels = SCALE * this.dogSize;
     
 
     ctx.drawImage(
@@ -89,10 +88,10 @@ class Dog {
       0, // start clipping y
       SPRITE_SIZE, // width clip
       SPRITE_SIZE, // height clip
-      (camera_x-p.x) * SCALE, // position x
-      (camera_y-p.y) * SCALE, // position y
-      dogSizeInPixels,
-      dogSizeInPixels
+      Math.round((camera_x-p.x) * SCALE), // position x
+      Math.round((camera_y-p.y) * SCALE), // position y
+      this.dogSizeInPixels,
+      this.dogSizeInPixels
     );
   }
 }

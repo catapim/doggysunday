@@ -45,22 +45,15 @@
     </canvas>
 </body>
 <script src="./js/world.js"></script>
+<script src="./js/grass.js"></script>
 <script src="./js/fence.js"></script>
 <script src="./js/sheep.js"></script>
 <script src="./js/utils.js"></script>
 <script src="./js/clouds.js"></script>
-
 <script src="./js/dog.js"></script>
 <script src="./js/controls.js"></script>
 
 <script>
-    // initialize canvas
-
-    var canvas = document.getElementById("canvas");
-    var ctx = canvas.getContext("2d");
-    canvas.width = WIDTH;
-    canvas.height = HEIGHT;
-
     // when window is resized, canvas must be resized
     function resize_canvas_to_window_size() {
         canvas.width = document.body.clientWidth;

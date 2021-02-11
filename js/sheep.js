@@ -96,12 +96,12 @@ class Sheep {
 
 		ctx.drawImage(
 			sheep_sprite,
-			anim_sprite * SPRITE_SIZE,
+			Math.round(anim_sprite * SPRITE_SIZE),
 			0,
 			SPRITE_SIZE,
 			SPRITE_SIZE,
-			(camera_x-p.x) * SCALE, // position x
-			(camera_y-p.y) * SCALE, // position y
+			Math.round((camera_x-p.x) * SCALE), // position x
+			Math.round((camera_y-p.y) * SCALE), // position y
 			sheepSizeInPixels,
 			sheepSizeInPixels
 
