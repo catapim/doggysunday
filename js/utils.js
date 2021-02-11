@@ -1,9 +1,11 @@
-
+var isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+console.log("isFirefox",isFirefox);
+let sound_format=isFirefox ? "ogg" : "mp3";
 var sound_samples={
-    "bark":new Audio("./src/sound/bark.wav"),
-    "sheep":new Audio("./src/sound/sheep.wav"),
-    "step":new Audio("./src/sound/step.wav"),
-    "bell":new Audio("./src/sound/bell.wav")
+    "bark":new Audio("./src/sound/bark."+sound_format),
+    "sheep":new Audio("./src/sound/sheep."+sound_format),
+    "step":new Audio("./src/sound/step."+sound_format),
+    "bell":new Audio("./src/sound/bell."+sound_format)
 };
 function playSound(filename,volume) {
     // let audio=new Audio();
@@ -15,7 +17,7 @@ function playSound(filename,volume) {
     sound_samples[filename].play();
 }
 let music_looping=false;
-var song_audio = new Audio("./src/sound/doggy_sunday.mp3")
+var song_audio = new Audio("./src/sound/doggy_sunday."+sound_format)
 
 function loopMusic() {
     if(music_looping==false) {
