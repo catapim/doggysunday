@@ -3,6 +3,8 @@ Just another Sunday on the farm. You wake up from a long nap and discover that t
 
 A game made for Global Game Jam 2021
 
+<img src="https://github.com/catapim/doggysunday/blob/main/src/img/screenshot.png?raw=true"/>
+
 [Play Online](https://catapim.github.io/doggysunday/)
 
 ## Controls
