@@ -8,6 +8,6 @@ A game made for Global Game Jam 2021
 [Play Online](https://catapim.github.io/doggysunday/)
 
 ## Controls
-WASD Keys = Move
-Space = Bark
+* WASD Keys = Move
+* Space = Bark
 
